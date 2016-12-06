@@ -1,9 +1,8 @@
 {
-  "name": "kirelabs.org",
+  "name": "tilt",
   "version": "0.0.0",
-  "homepage": "https://github.com/kirel/kirel.github.com",
   "authors": [
-    "Daniel Kirsch <danishkirel@gmail.com>"
+    "Daniel Kirsch <danishkirel@gmail.com>, Till Breuer <breuertill@gmail.com>"
   ],
   "license": "MIT",
   "private": true,
