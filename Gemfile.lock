@@ -117,4 +117,4 @@ DEPENDENCIES
   middleman-livereload (~> 3.1.0)
 
 BUNDLED WITH
-   1.13.6
+   2.2.31
