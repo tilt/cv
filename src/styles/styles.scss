@@ -156,6 +156,14 @@ $icons: (
   align-items: start;
 }
 
+.contact-and-lang {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  margin-top: 1rem;
+}
+
 #header__name {
   margin: 0;
   font-size: 5rem;
@@ -174,9 +182,7 @@ $icons: (
   font-style: normal;
 
   table {
-    float: right;
     width: auto;
-    margin-top: 1rem;
   }
 
   td:first-child {
@@ -280,6 +286,10 @@ $icons: (
   }
 }
 
+.lang-switcher {
+  font-size: 0.85rem;
+}
+
 #footer {
   margin: 1rem 0;
   padding: 1rem;
@@ -329,8 +339,8 @@ $icons: (
     grid-template-columns: 1fr;
   }
 
-  #contact table {
-    float: none;
+  .contact-and-lang {
+    align-items: flex-start;
     margin-left: 1rem;
   }
 
@@ -406,6 +416,10 @@ $icons: (
     }
   }
 
+  .lang-switcher {
+    text-align: center;
+  }
+
   #abstract p {
     text-align: justify;
   }
@@ -431,6 +445,10 @@ $icons: (
   #footer {
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+
+  .lang-switcher {
+    display: none;
   }
 
   #footer {

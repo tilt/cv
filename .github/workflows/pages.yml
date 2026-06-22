@@ -30,25 +30,25 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Build CSS
-        run: npm run build
-
-      - name: Check committed CSS is up to date
-        run: git diff --exit-code assets/styles.css
+      - name: Build
+        run: npm run build:css && npm run build:html -- --base "$BASE_PATH"
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
       - name: Validate HTML
         run: npm run validate
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment

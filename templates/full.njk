@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ lang }}" data-theme="{{ theme }}">
+  <head>
+    {% include "partials/head.njk" %}
+  </head>
+  <body>
+{% include "partials/header.njk" %}
+
+    <section id="abstract">
+      <p>{{ abstract | safe }}</p>
+    </section>
+
+{% include "partials/education.njk" %}
+
+{% include "partials/experience.njk" %}
+
+{% include "partials/interests.njk" %}
+
+{% include "partials/references.njk" %}
+
+{% include "partials/footer.njk" %}
+  </body>
+</html>

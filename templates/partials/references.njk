@@ -1,0 +1,9 @@
+    <section id="references">
+      <h3><span><i class="fa fa-{{ icons.references }}" aria-hidden="true"></i> {{ sections.references }}</span></h3>
+      {% for ref in references %}
+      <dl>
+        <dt>{{ ref.name }} (<a href="{{ ref.url }}">{{ ref.url }}</a>)</dt>
+        <dd>{{ ref.relation }}</dd>
+      </dl>
+      {% endfor %}
+    </section>

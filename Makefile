@@ -4,7 +4,7 @@ NVM_DIR ?= $(HOME)/.nvm
 NODE_VERSION := $(shell cat .nvmrc)
 NVM := . "$(NVM_DIR)/nvm.sh" && nvm use >/dev/null &&
 
-.PHONY: ensure-node install build watch check deploy clean
+.PHONY: ensure-node install build watch serve check deploy clean
 
 ensure-node:
 	@if [ ! -s "$(NVM_DIR)/nvm.sh" ]; then \
@@ -26,12 +26,13 @@ build: ensure-node
 	$(NVM) npm run build
 
 watch: ensure-node
-	$(NVM) npm run watch
+	$(NVM) npm run watch:css
+
+serve: build
+	$(NVM) npx serve dist
 
 check: build
 	$(NVM) npm run validate
-	git diff --check
-	git diff --exit-code assets/styles.css
 
 deploy: check
 	git push origin HEAD

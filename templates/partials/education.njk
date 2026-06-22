@@ -1,0 +1,17 @@
+    <section id="education">
+      <h3><span><i class="fa fa-{{ icons.education }}" aria-hidden="true"></i> {{ sections.education }}</span></h3>
+      <table>
+        {% for entry in education %}
+        <tr>
+          <td class="period">{{ entry.period }}</td>
+          <td class="school">
+            {{ entry.school }}
+            <aside class="school-details">
+              {{ entry.details | safe }}{% if entry.thesis_title %}<br>
+              {% if entry.thesis_file %}Thesis ({{ entry.thesis_grade }}): <a href="{{ basePath }}/{{ entry.thesis_file }}">&raquo;{{ entry.thesis_title }}&laquo;</a>{% else %}Thesis ({{ entry.thesis_grade }}): &raquo;{{ entry.thesis_title }}&laquo;{% endif %}{% endif %}
+            </aside>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </section>

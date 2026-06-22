@@ -1,0 +1,243 @@
+lang: de
+theme: classic
+name: Till Breuer
+email: breuertill@gmail.com
+meta_description: Lebenslauf von Till Breuer
+profession: Mathematiker. Data Scientist. Softwareentwickler.
+fonts_url: "https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,400;0,700;1,400&display=swap"
+
+abstract: >-
+  <em>Data Scientist</em> mit Diplom in Mathematik der Universität Münster
+  und Erfahrung in <em>maschinellem Lernen</em>, <em>Softwareentwicklung</em>
+  und <em>statistischer Modellierung</em>.
+
+pdf_file: lebenslauf_till_breuer_de.pdf
+pdf_label: PDF
+
+lang_switcher:
+  label: English
+  flag: "🇬🇧"
+  url: /
+
+sections:
+  education: Ausbildung
+  experience: Berufserfahrung
+  interests: Interessen
+  references: Referenzen
+
+icons:
+  education: book
+  experience: clock-o
+  interests: flask
+  references: comments
+
+education:
+  - period: "10/2004 - 06/2010"
+    school: Universität Münster
+    details: "Diplom in Mathematik / Wahrscheinlichkeitstheorie &#8709; 1,2"
+    thesis_grade: "1,3"
+    thesis_title: "Zur Rekurrenz von Random Walks"
+    thesis_file: thesis.pdf
+    variants: [full, brief]
+
+  - period: "10/2001 - 10/2004"
+    school: Berufsakademie Mannheim
+    details: "Diplom in Informationstechnik (BA) &#8709; 1,5"
+    thesis_grade: "1,4"
+    thesis_title: "Entwurf einer Architektur zur Publikation von Unternehmensverzeichnissen im Intranet"
+    variants: [full]
+
+  - period: "1991 - 2000"
+    school: "Gymnasium Am Geroweiher, Mönchengladbach"
+    details: "Abitur &#8709; 1,4"
+    variants: [full]
+
+experience:
+  - period: 8/2019 - heute
+    company: Freiberuflich
+    company_details: Selbstständig
+    title: Data Scientist
+    description: |
+      <h4>Projekte</h4>
+      <p>Als Freiberufler habe ich algorithmische Herausforderungen in verschiedenen Bereichen bearbeitet, darunter Computer Vision, natürliche Sprachverarbeitung und Bedarfsprognosen. Darüber hinaus habe ich Data-Engineering-Aufgaben übernommen, mit Schwerpunkt auf der Implementierung von Datenpipelines und dem Ausbau von Data Warehouses. Meine Rolle umfasste Konzeptentwicklung, Forschung und Entwicklung, praktische Umsetzung und Projektkoordination.</p>
+      <p>Projekte, an denen ich gearbeitet habe:</p>
+      <ul>
+        <li>Swipe-basierte Empfehlungs-App mit inhaltsbasiertem Image Retrieval und einem Bandit-Algorithmus</li>
+        <li>Durchführung von Workshops und Vermittlung von Deep-Learning-Konzepten für Computer Vision</li>
+        <li>Textbasierte Kategorisierung von Marketingtexten</li>
+        <li>Hybride semantische Bildsegmentierung und Poseerkennung in Straßenszenen</li>
+        <li>Implementierung eines Literaturverwaltungssystems mit ELK-Stack-Integration</li>
+        <li>NLP- und empfehlungsbasiertes Matchmaking</li>
+        <li>Evaluation von Deep-Learning-Modellen für autonomes Fahren</li>
+        <li>Zeitreihenprognosen für Bedarfsvorhersagen in der Logistik</li>
+        <li>Design und Implementierung von Empfehlungs-Microservices für Nachrichtenportale</li>
+        <li>Datenpipelines und Data-Warehouse-Design &amp; -Implementierung auf AWS und GCloud mit dbt und Airflow</li>
+      </ul>
+
+      <h4>Technologie-Stack</h4>
+      <ul>
+        <li>Python (10 Jahre)</li>
+        <li>SQL &amp; relationale Datenbanken (15 Jahre)</li>
+        <li>pandas (10 Jahre)</li>
+        <li>scikit-learn (10 Jahre)</li>
+        <li>PyTorch (5 Jahre)</li>
+        <li>matplotlib, altair (10 Jahre)</li>
+        <li>Elasticsearch und ELK-Stack (5 Jahre)</li>
+        <li>GCloud &amp; BigQuery (2 Jahre)</li>
+        <li>AWS (1 Jahr)</li>
+        <li>dbt (1 Jahr)</li>
+        <li>Airflow (1 Jahr)</li>
+        <li>Keras + Tensorflow (3 Jahre)</li>
+        <li>Ruby (7 Jahre)</li>
+        <li>JavaScript, AngularJS (5 Jahre)</li>
+      </ul>
+    variants: [full, brief]
+
+  - period: 2/2020 - 10/2021
+    company: mediaire GmbH
+    company_details: KI-Software für Radiologen
+    title: Senior Data Scientist
+    description: |
+      <p>Bei mediaire war ich verantwortlich für das Benchmarking und die Anpassung von Segmentierungs- und Klassifikationsmodellen für MRT-Bilder sowie deren Integration in die Software.</p>
+      <h4>Aufgaben &amp; Erfolge</h4>
+      <ul>
+        <li>Entwicklung von Prototypen zur Segmentierung und Klassifikation von MRT-Bildern</li>
+        <li>Evaluation und Benchmarking von State-of-the-Art-Lösungen für medizinische Bildanalyse</li>
+        <li>Entwicklung und Verbesserung von Deep-Learning-Modellen</li>
+      </ul>
+    variants: [full]
+
+  - period: 6/2017 - 8/2019
+    company: Twenty Billion Neurons GmbH
+    company_details: Echtzeit-Videoanalyse
+    title: A.I. Engineer / Senior A.I. Engineer
+    description: |
+      <p>Bei Twenty Billion Neurons arbeitete ich als Forschungs- und Entwicklungsingenieur an künstlichen neuronalen Netzen zur Aktivitätserkennung in Videos. Ich war an der Entwicklung von Lösungen zur räumlichen und zeitlichen Aktivitätserkennung mit tiefen neuronalen Netzen beteiligt und setzte die Technologie in verschiedenen Kundenprojekten ein.</p>
+      <h4>Aufgaben &amp; Erfolge</h4>
+      <ul>
+        <li>Entwicklung von Lösungen zur räumlichen Erkennung in Echtzeit-Videos</li>
+        <li>Entwicklung von Lösungen für präzise zeitliche Vorhersagen und Triggerpunkt-Erkennung in Videos</li>
+        <li>Umsetzung von Kundenprojekten</li>
+        <li>Mentoring-Aufgaben</li>
+      </ul>
+    variants: [full]
+
+  - period: 11/2014 - 6/2017
+    company: The unbelievable Machine Company GmbH
+    company_details: Cloud-Service-Provider und Full-Service-Provider für Datenlösungen
+    title: Data Scientist
+    description: |
+      <p>Bei der unbelievable Machine Company arbeitete ich an verschiedenen Data-Science-Projekten. Dazu gehörten Industrie-, E-Commerce- und Medienprojekte. Unter anderem arbeitete ich an</p>
+      <ul>
+        <li>Computer Vision: Bilderkennung mit neuronalen Netzen</li>
+        <li>Empfehlungssysteme: Kollaboratives Filtern, inhaltsbasierte Empfehlungen, statistische und Bandit-Ansätze</li>
+        <li>Predictive Maintenance: Vorhersage von Fehlfunktionen bei Fertigungskomponenten und Fehlerklassifikation</li>
+        <li>Performance-Vorhersage: Prognose der Verteilung von Nutzerinteraktionen über verschiedene Kanäle</li>
+        <li>Vorhersage des Energieverbrauchs</li>
+        <li>Verschiedene Clustering- / Segmentierungsaufgaben</li>
+      </ul>
+      <h4>Aufgaben &amp; Erfolge</h4>
+      <ul>
+        <li>Führende Rolle in den meisten Projekten</li>
+        <li>Kundenkommunikation</li>
+        <li>Beitrag zur Verbesserung interner Prozesse</li>
+        <li>Einführung von Best Practices für Programmierung</li>
+        <li>Referent auf mehreren Konferenzen, darunter der bitkom Big Data Summit</li>
+      </ul>
+    variants: [full]
+
+  - period: 8/2014 - 10/2014
+    company: bitcrowd GmbH
+    company_details: Webentwicklungs-Beratung
+    title: Freiberuflicher Softwareentwickler
+    description: |
+      <p>Nach der Crowdfunding-Kampagne von Krautreporter half ich bei der Entwicklung der Plattform als leitender Backend- und Javascript-Ingenieur. Ich war verantwortlich für die technischen Konzepte der Plattform sowie die Implementierung des Rails-Backends, der AngularJS-Komponenten und deren Zusammenspiel. Die Plattform hatte eine enge Deadline und wurde pünktlich gelauncht.</p>
+      <h4>Aufgaben &amp; Erfolge</h4>
+      <ul>
+        <li>Backend- und clientseitige Entwicklung</li>
+        <li>Technologieauswahl (Web-Content-Editor zum Veröffentlichen von Artikeln)</li>
+        <li>Technische Konzepte</li>
+      </ul>
+    variants: [full]
+
+  - period: 10/2013 - 8/2014
+    company: finn GmbH / openproject
+    company_details: Softwareentwicklungs-Beratung
+    title: Softwareentwickler
+    description: |
+      <p>Finnlabs ist ein Berliner Unternehmen, das sich auf sein Produkt konzentriert, eine Open-Source-Projektmanagement-Software namens OpenProject. Ich kam als Senior-Softwareentwickler zum Unternehmen.</p>
+      <h4>Aufgaben &amp; Erfolge</h4>
+      <ul>
+        <li>Backend-Entwicklung (Ruby on Rails)</li>
+        <li>Arbeit in einem internationalen Team</li>
+        <li>Requirements Engineering und Sprint-Planung</li>
+        <li>Teamkoordination und Leitung der Javascript- / AngularJS-Entwicklung</li>
+      </ul>
+    variants: [full]
+
+  - period: 6/2010 - 10/2013
+    company: Zweitag GmbH
+    company_details: Ruby-on-Rails-Beratung
+    title: Softwareentwickler
+    description: |
+      <p>Als Softwareingenieur arbeitete ich an verschiedenen Projekten, zum Beispiel <em>so-schmeckts.de</em> oder <em>compeon.de</em>. Die eingesetzten Technologien umfassten <em>Rails</em> als serverseitige Technologie sowie <em>JavaScript</em> und verwandte Frameworks wie <em>AngularJS</em> auf der Clientseite. Zweitag praktiziert verhaltensgetriebene Entwicklung mit <em>Rspec</em>, <em>Capybara</em> und <em>Jasmine</em>. Datenvisualisierungen wurden unter anderem mit <em>D3.js</em> erstellt.</p>
+      <h4>Aufgaben &amp; Erfolge</h4>
+      <ul>
+        <li>Backend- und clientseitige Entwicklung</li>
+        <li>Technische Konzepte</li>
+        <li>Kundenkommunikation</li>
+        <li>Projektkoordination</li>
+      </ul>
+    variants: [full]
+
+  - period: 8/2010 - 10/2011
+    company: Institut für Mathematische Statistik
+    company_details: der Universität Münster
+    title: Wissenschaftlicher Mitarbeiter
+    description: |
+      <p>Als wissenschaftlicher Mitarbeiter am Institut für Wahrscheinlichkeitstheorie der Universität Münster betreute ich Seminare in Wahrscheinlichkeitstheorie und statistischer Modellierung. Außerdem leitete ich das Praktikum für angewandte Statistik mit R. Ich forschte im Bereich der Erneuerungstheorie und untersuchte strukturelle Vererbungseigenschaften von Markov-Erneuerungsprozessen. Parallel arbeitete ich als Softwareentwickler bei Zweitag GmbH (siehe oben).</p>
+    variants: [full]
+
+  - period: 10/2008 - 3/2010
+    company: Fairix
+    company_details: Startup
+    title: Softwareentwickler, CTO
+    description: |
+      <p>Fairix ist ein Startup, an dem ich als Softwareingenieur während meines Mathematikstudiums mitwirkte. Fairix bot Produzenten und Händlern eine Plattform, um Produkte mit zusätzlichem ökologischem oder sozialem Wert anzubieten, z.B. Fair-Trade-Produkte. In einem Entwicklerteam zu zweit entwickelten wir eine Marktplatz-Plattform mit Ruby on Rails. Dafür lernte ich Rails von Grund auf und übernahm im weiteren Projektverlauf die Leitung der Entwicklung bis zum Launch. Das Startup ging nach zwei Jahren die Finanzierung aus.</p>
+    variants: [full]
+
+  - period: 8/2007 - 9/2007
+    company: "Bundesamt für Sicherheit in der Informationstechnik"
+    company_details: (BSI)
+    title: Wissenschaftlicher Mitarbeiter (Mustererkennung)
+    description: |
+      <p>In meinem Praktikum beim BSI arbeitete ich an Forschungsthemen zur Malware-Klassifikation. Das Praktikum dauerte zwei Monate und zusammen mit meinem Betreuer implementierte ich einen Mustererkennungs- und Clustering-Ansatz zur Identifikation und Unterscheidung von Malware anhand der verwendeten Exploits. Die Software musste extrem performant und von linearer Komplexität sein und wurde in C geschrieben.</p>
+    variants: [full]
+
+  - period: 10/2006 - 3/2008
+    company: Institut für Mathematische Statistik
+    company_details: der Universität Münster
+    title: Tutor für Lineare Algebra / Funktionalanalysis
+    description: |
+      <p>Tutorien und Korrektur von studentischen Hausaufgaben.</p>
+    variants: [full]
+
+interests:
+  - Musik
+  - Sport
+  - Lesen
+  - "Mathematik, Physik, Informatik, Biologie"
+  - Lernen
+  - Code-Design
+
+references:
+  - name: "Stefan Otte, ehemaliger Lead Data Scientist bei paretos GmbH"
+    url: "https://www.paretos.com/de/home"
+    relation: war mein Teamleiter bei paretos
+  - name: "Nicolas Gorges, Lead Data Scientist bei Birds on Mars GmbH"
+    url: "https://www.birdsonmars.com"
+    relation: war mein Teamleiter bei The unbelievable Machine Company
+
+footer:
+  theme_credit: 'Das Farbschema basiert auf <a href="http://ethanschoonover.com/solarized">solarized</a>.'
+  download_prompt: "Download"
