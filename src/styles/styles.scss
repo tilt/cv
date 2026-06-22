@@ -1,0 +1,439 @@
+@use "sass:map";
+
+$themes: (
+  classic: (
+    background: rgb(252, 245, 228),
+    foreground: rgb(11, 42, 53),
+    accent: rgb(191, 88, 44),
+    muted: rgb(91, 109, 116),
+    link: rgb(59, 142, 207)
+  ),
+  clean: (
+    background: rgb(255, 255, 255),
+    foreground: rgb(17, 24, 39),
+    accent: rgb(165, 70, 45),
+    muted: rgb(86, 98, 115),
+    link: rgb(31, 111, 171)
+  )
+);
+
+@mixin theme-vars($theme) {
+  --background-color: #{map.get($theme, background)};
+  --font-color: #{map.get($theme, foreground)};
+  --accent-color: #{map.get($theme, accent)};
+  --unobtrusive-color: #{map.get($theme, muted)};
+  --link-color: #{map.get($theme, link)};
+}
+
+:root,
+html[data-theme="classic"] {
+  @include theme-vars(map.get($themes, classic));
+}
+
+html[data-theme="clean"] {
+  @include theme-vars(map.get($themes, clean));
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  src:
+    url("fonts/fontawesome-webfont.woff2") format("woff2"),
+    url("fonts/fontawesome-webfont.woff") format("woff"),
+    url("fonts/fontawesome-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  font-size: 100%;
+}
+
+body {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 1rem;
+  color: var(--font-color);
+  background: var(--background-color);
+  font-family: "Exo 2", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+h2,
+h3 {
+  color: var(--accent-color);
+}
+
+h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+em {
+  color: var(--accent-color);
+  font-style: normal;
+  font-weight: 400;
+}
+
+a {
+  position: relative;
+  color: var(--link-color);
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+
+  &:visited {
+    color: var(--link-color);
+  }
+
+  &::before {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    border-bottom: 1px solid var(--link-color);
+    content: "";
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover::before {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.fa {
+  display: inline-block;
+  min-width: 1em;
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-align: center;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$icons: (
+  envelope: "\f0e0",
+  mobile: "\f10b",
+  book: "\f02d",
+  clock-o: "\f017",
+  flask: "\f0c3",
+  comments: "\f086",
+  github: "\f09b"
+);
+
+@each $name, $codepoint in $icons {
+  .fa-#{$name}::before {
+    content: $codepoint;
+  }
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 9fr) minmax(12rem, 3fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+#header__name {
+  margin: 0;
+  font-size: 5rem;
+  line-height: 1.1;
+}
+
+#header__profession {
+  margin: 0;
+  color: var(--unobtrusive-color);
+  font-size: 1.65rem;
+  font-weight: 200;
+}
+
+#contact {
+  color: inherit;
+  font-style: normal;
+
+  table {
+    float: right;
+    width: auto;
+    margin-top: 1rem;
+  }
+
+  td:first-child {
+    width: 20px;
+    padding: 4px;
+    text-align: center;
+  }
+}
+
+#abstract,
+#education,
+#experience,
+#voluntary-experience,
+#interests,
+#references,
+#footer {
+  width: 100%;
+}
+
+#abstract p {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+
+#experience,
+#voluntary-experience,
+#education {
+  td:first-child {
+    width: 20%;
+    min-width: 160px;
+    max-width: 15rem;
+    padding-right: 1rem;
+  }
+
+  td {
+    padding-bottom: 0.5rem;
+    vertical-align: top;
+  }
+}
+
+#education {
+  .period,
+  .school-details {
+    color: var(--unobtrusive-color);
+    font-weight: 200;
+  }
+}
+
+#experience,
+#voluntary-experience {
+  .period {
+    margin-top: 0.5rem;
+    color: var(--unobtrusive-color);
+    font-weight: 200;
+  }
+
+  .company,
+  .organisation {
+    font-weight: bold;
+  }
+
+  .company-details,
+  .organisation-details {
+    display: block;
+    color: var(--unobtrusive-color);
+    font-weight: normal;
+  }
+
+  .employment-details,
+  .activity-details {
+    color: var(--unobtrusive-color);
+    font-weight: 200;
+
+    h4 {
+      margin: 0.5rem 0 0;
+      color: var(--font-color);
+    }
+
+    ul {
+      margin: 0.5rem 0 0;
+    }
+  }
+}
+
+#references dd {
+  color: var(--unobtrusive-color);
+  font-weight: 200;
+}
+
+#interests {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 2rem;
+    padding-left: 1.3rem;
+  }
+
+  li {
+    list-style: circle;
+  }
+}
+
+#footer {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-top: 1px solid var(--font-color);
+  color: var(--unobtrusive-color);
+  font-size: 0.8rem;
+  font-weight: 200;
+  text-align: center;
+}
+
+@media screen {
+  #experience,
+  #voluntary-experience,
+  #education {
+    table {
+      margin-left: 0.6rem;
+    }
+
+    tr {
+      margin-top: 0.6rem;
+    }
+
+    td {
+      border-bottom: 1rem solid var(--background-color);
+    }
+
+    td:first-child {
+      position: relative;
+      padding-left: 1rem;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        border-left: 1px solid var(--accent-color);
+        content: "";
+        transition: all 0.2s ease-out;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
+
+  #contact table {
+    float: none;
+    margin-left: 1rem;
+  }
+
+  #abstract p {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 525px) {
+  #header__name {
+    font-size: 3.5rem;
+  }
+
+  #header__profession {
+    font-size: 1.15rem;
+  }
+
+  #experience,
+  #voluntary-experience,
+  #education {
+    table,
+    tbody,
+    tr,
+    td {
+      display: block;
+    }
+
+    tr {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 1px solid var(--accent-color);
+    }
+
+    td:first-child {
+      width: 100%;
+      max-width: none;
+      padding-left: 0;
+      border: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  #interests ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  #header__name {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+
+  #header__profession {
+    text-align: center;
+  }
+
+  #contact {
+    table,
+    tr {
+      display: block;
+      width: initial;
+      margin-right: auto;
+      margin-left: auto;
+      text-align: center;
+    }
+
+    td {
+      display: inline;
+    }
+  }
+
+  #abstract p {
+    text-align: justify;
+  }
+}
+
+@media print {
+  html,
+  body {
+    font-size: 84%;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  #abstract,
+  #education,
+  #experience tr,
+  #voluntary-experience,
+  #interests,
+  #references,
+  #footer {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #footer {
+    display: none;
+  }
+}
