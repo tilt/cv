@@ -157,11 +157,8 @@ $icons: (
 }
 
 .contact-and-lang {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.25rem;
   margin-top: 1rem;
+  text-align: right;
 }
 
 #header__name {
@@ -183,6 +180,7 @@ $icons: (
 
   table {
     width: auto;
+    margin-left: auto;
   }
 
   td:first-child {
@@ -340,8 +338,12 @@ $icons: (
   }
 
   .contact-and-lang {
-    align-items: flex-start;
+    text-align: left;
     margin-left: 1rem;
+  }
+
+  #contact table {
+    margin-left: 0;
   }
 
   #abstract p {
