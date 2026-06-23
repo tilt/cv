@@ -1,22 +1,20 @@
+    <nav class="switcher-bar" aria-label="CV options">
+      {% if variant_switcher %}
+      <a class="variant-switcher" href="{{ variant_switcher.url }}">{{ variant_switcher.label }}</a>
+      {% endif %}
+      <a href="{{ lang_switcher.url }}">{{ lang_switcher.flag }} {{ lang_switcher.label }}</a>
+    </nav>
     <section class="intro">
       <header id="header">
         <h1 id="header__name"><span>{{ name }}</span></h1>
         <h2 id="header__profession">{{ profession }}</h2>
       </header>
-      <div class="contact-and-lang">
-        <address id="contact">
-          <ul class="contact-list">
-            <li class="mail">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <a href="mailto:{{ email }}">{{ email }}</a>
-            </li>
-          </ul>
-        </address>
-        <nav class="switcher-links" aria-label="CV options">
-          {% if variant_switcher %}
-          <a class="variant-switcher" href="{{ variant_switcher.url }}">{{ variant_switcher.label }}</a>
-          {% endif %}
-          <a href="{{ lang_switcher.url }}">{{ lang_switcher.flag }} {{ lang_switcher.label }}</a>
-        </nav>
-      </div>
+      <address id="contact">
+        <ul class="contact-list">
+          <li class="mail">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:{{ email }}">{{ email }}</a>
+          </li>
+        </ul>
+      </address>
     </section>
