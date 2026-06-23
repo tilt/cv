@@ -19,6 +19,8 @@ experience:
         <li>Zeitreihenprognosen für Bedarfsvorhersagen in der Logistik</li>
         <li>Design und Implementierung von Empfehlungs-Microservices für Nachrichtenportale</li>
         <li>Datenpipelines und Data-Warehouse-Design &amp; -Implementierung auf AWS und GCloud mit dbt und Airflow</li>
+        <li>Text-Extraktion und Entitätszuordnung für historische Museum Labels zur Artenkategorisierung</li>
+        <li>Gestenerkennung in Videos mit Video-Transformer-Modellen</li>
       </ul>
     variants: [full, brief]
 

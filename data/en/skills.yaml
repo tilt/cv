@@ -2,7 +2,7 @@
 # Plain factual name + self-reported years of experience. No subjective ratings.
 skills:
   - name: Python
-    experience: 10 years
+    experience: 12 years
   - name: SQL &amp; relational databases
     experience: 15 years
   - name: pandas
@@ -10,7 +10,7 @@ skills:
   - name: scikit-learn
     experience: 10 years
   - name: PyTorch
-    experience: 5 years
+    experience: 7 years
   - name: matplotlib, altair
     experience: 10 years
   - name: Elasticsearch and ELK-stack
@@ -18,7 +18,7 @@ skills:
   - name: GCloud &amp; BigQuery
     experience: 2 years
   - name: AWS
-    experience: 1 year
+    experience: 2 years
   - name: dbt
     experience: 1 year
   - name: Airflow

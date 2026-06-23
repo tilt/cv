@@ -19,6 +19,8 @@ experience:
         <li>Time series forecasts for demand prediction in logistics</li>
         <li>Design and implementation of recommendation microservices for production news sites</li>
         <li>Data pipelines and data warehouse design &amp; implementation on AWS and GCloud with dbt and Airflow</li>
+        <li>Text extraction and entity matching from historical museum labels for species categorization</li>
+        <li>Gesture recognition in videos with video transformer models</li>
       </ul>
     variants: [full, brief]
 
