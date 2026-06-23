@@ -11,10 +11,19 @@
       </header>
       <address id="contact">
         <ul class="contact-list">
+          {% if variant == "brief" and contact_links %}
+          {% for link in contact_links %}
+          <li class="{{ link.id }}">
+            <i class="fa fa-{{ link.icon }}" aria-hidden="true"></i>
+            <a href="{{ link.url }}">{{ link.label }}</a>
+          </li>
+          {% endfor %}
+          {% else %}
           <li class="mail">
             <i class="fa fa-envelope" aria-hidden="true"></i>
             <a href="mailto:{{ email }}">{{ email }}</a>
           </li>
+          {% endif %}
         </ul>
       </address>
     </section>

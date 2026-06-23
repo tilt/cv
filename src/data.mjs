@@ -49,6 +49,9 @@ const FIELD_FILE = {
   profession: 'metadata.yaml',
   fonts_url: 'metadata.yaml',
   abstract: 'metadata.yaml',
+  brief_profile: 'metadata.yaml',
+  contact_links: 'metadata.yaml',
+  language_skills: 'metadata.yaml',
   pdf_file: 'metadata.yaml',
   brief_pdf_file: 'metadata.yaml',
   pdf_label: 'metadata.yaml',
@@ -216,6 +219,27 @@ function checkEntries(errors, lang, data, field, requiredFields) {
         for (const v of entry.variants) {
           if (!VARIANTS.includes(v)) {
             errors.push(`${where} (id="${entry.id ?? '?'}"): unknown variant "${v}" (allowed: ${VARIANTS.join(', ')})`);
+          }
+        }
+      }
+    }
+    if (entry.localized_variants !== undefined) {
+      if (!entry.localized_variants || typeof entry.localized_variants !== 'object' || Array.isArray(entry.localized_variants)) {
+        errors.push(`${where} (id="${entry.id ?? '?'}"): "localized_variants" must be a language-to-variants mapping`);
+      } else {
+        for (const [localizedLang, variants] of Object.entries(entry.localized_variants)) {
+          if (!LANGUAGES.includes(localizedLang)) {
+            errors.push(`${where} (id="${entry.id ?? '?'}"): "localized_variants.${localizedLang}" is not a supported language`);
+            continue;
+          }
+          if (!Array.isArray(variants) || variants.length === 0) {
+            errors.push(`${where} (id="${entry.id ?? '?'}"): "localized_variants.${localizedLang}" must be a non-empty list`);
+            continue;
+          }
+          for (const v of variants) {
+            if (!VARIANTS.includes(v)) {
+              errors.push(`${where} (id="${entry.id ?? '?'}"): unknown localized variant "${v}" (allowed: ${VARIANTS.join(', ')})`);
+            }
           }
         }
       }

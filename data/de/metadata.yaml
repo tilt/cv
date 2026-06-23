@@ -3,13 +3,47 @@ theme: classic
 name: Till Breuer
 email: breuertill@gmail.com
 meta_description: Lebenslauf von Till Breuer
-profession: Mathematiker. Data Scientist. Softwareentwickler.
+profession: Data Scientist. ML Engineer. Softwareentwickler.
 fonts_url: "https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,400;0,700;1,400&display=swap"
 
 abstract: >-
-  <em>Data Scientist</em> mit Diplom in Mathematik der Universität Münster
-  und Erfahrung in <em>maschinellem Lernen</em>, <em>Softwareentwicklung</em>
-  und <em>statistischer Modellierung</em>.
+  <em>Data Scientist</em> und erfahrener <em>Softwareentwickler</em> mit Diplom
+  in Mathematik der Universität Münster sowie Erfahrung in <em>maschinellem
+  Lernen</em> und <em>statistischer Modellierung</em>.
+
+brief_profile: >-
+  Senior <em>Data Scientist / ML Engineer</em> und erfahrener
+  <em>Softwareentwickler</em> mit Schwerpunkt auf produktiven ML-Systemen,
+  cloudbasierten Datenpipelines sowie Computer-Vision-, NLP- und
+  Empfehlungslösungen.
+
+contact_links:
+  - id: email
+    icon: envelope
+    label: breuertill@gmail.com
+    url: mailto:breuertill@gmail.com
+  - id: linkedin
+    icon: linkedin
+    label: LinkedIn
+    url: https://www.linkedin.com/in/till-breuer-7491b599/
+  - id: github
+    icon: github
+    label: "GitHub: tilt"
+    url: https://github.com/tilt
+  - id: gitlab
+    icon: gitlab
+    label: "GitLab: tillt"
+    url: https://gitlab.com/tillt
+
+language_skills:
+  - language: Deutsch
+    level: Muttersprache
+  - language: Englisch
+    level: verhandlungssicher
+  - language: Spanisch
+    level: konversationssicher
+  - language: Französisch
+    level: konversationssicher
 
 pdf_file: lebenslauf_till_breuer_de.pdf
 brief_pdf_file: lebenslauf_till_breuer_kurz.pdf
@@ -21,12 +55,14 @@ lang_switcher:
 
 variant_switcher:
   full_label: Vollständiger Lebenslauf
-  brief_label: Kurzversion
+  brief_label: Tabellarischer Lebenslauf
 
 sections:
+  profile: Profil
   education: Ausbildung
   experience: Berufserfahrung
   skills: Kenntnisse
+  languages: Sprachkenntnisse
   interests: Interessen
   references: Referenzen
 

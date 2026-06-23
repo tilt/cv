@@ -54,6 +54,10 @@ function outputDirFor(lang, variant) {
   return rel ? resolve(dist, rel) : dist;
 }
 
+function includesVariant(entry, lang, variant) {
+  return entry.variants?.includes(variant) || entry.localized_variants?.[lang]?.includes(variant);
+}
+
 function dataForVariant(source, lang, variant) {
   const data = structuredClone(source);
   const otherLang = LANGUAGES.find(l => l !== lang);
@@ -68,8 +72,8 @@ function dataForVariant(source, lang, variant) {
   };
 
   if (variant !== 'full') {
-    data.education = data.education.filter(e => e.variants?.includes(variant));
-    data.experience = data.experience.filter(e => e.variants?.includes(variant));
+    data.education = data.education.filter(e => includesVariant(e, lang, variant));
+    data.experience = data.experience.filter(e => includesVariant(e, lang, variant));
   }
 
   return data;

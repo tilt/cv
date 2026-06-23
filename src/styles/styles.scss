@@ -136,7 +136,9 @@ $icons: (
   flask: "\f0c3",
   comments: "\f086",
   code: "\f121",
-  github: "\f09b"
+  github: "\f09b",
+  gitlab: "\f296",
+  linkedin: "\f0e1"
 );
 
 @each $name, $codepoint in $icons {
@@ -338,22 +340,50 @@ $icons: (
 .variant-brief {
   max-width: 60rem;
 
+  .switcher-bar {
+    margin-bottom: 0.75rem;
+  }
+
+  .intro {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 20rem);
+    gap: 1.5rem;
+  }
+
   #header__name {
-    font-size: 3.8rem;
+    font-size: 3.55rem;
   }
 
   #header__profession {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
   }
 
-  #abstract p {
-    margin-top: 1rem;
-    font-size: 1.1rem;
+  #contact {
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+  }
+
+  #contact li {
+    margin-bottom: 0.2rem;
+  }
+
+  #abstract {
+    h3 {
+      margin-top: 0.65rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 200;
+      line-height: 1.3;
+    }
   }
 
   h3 {
-    margin: 1rem 0 0.4rem;
-    font-size: 1.15rem;
+    margin: 0.85rem 0 0.35rem;
+    border-bottom: 1px solid var(--accent-color);
+    font-size: 0.95rem;
+    letter-spacing: 0;
   }
 
   .entries {
@@ -361,12 +391,26 @@ $icons: (
   }
 
   .entry {
-    grid-template-columns: minmax(140px, 12rem) minmax(0, 1fr);
-    margin-bottom: 0.55rem;
+    grid-template-columns: minmax(150px, 12rem) minmax(0, 1fr);
+    margin-bottom: 0.45rem;
   }
 
   .period {
     margin-top: 0.25rem;
+  }
+
+  .employment,
+  .school {
+    font-weight: 700;
+  }
+
+  .employment__title,
+  .employment__company {
+    display: block;
+  }
+
+  .employment__company {
+    font-weight: 400;
   }
 
   .brief-summary {
@@ -379,20 +423,88 @@ $icons: (
     color: var(--unobtrusive-color);
   }
 
+  .brief-skill-lines {
+    display: grid;
+    gap: 0.2rem;
+    margin: 0;
+  }
+
+  .brief-skill-line {
+    display: grid;
+    grid-template-columns: minmax(160px, 13rem) minmax(0, 1fr);
+    column-gap: 0.8rem;
+
+    dt {
+      font-weight: 700;
+    }
+
+    dd {
+      margin: 0;
+      color: var(--unobtrusive-color);
+      font-weight: 200;
+    }
+  }
+
   #skills .skill-groups {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.5rem 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem 1.5rem;
   }
 
   #skills .skill {
-    display: block;
-    padding: 0.05rem 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.4rem;
+    padding: 0;
+    border-bottom: 0;
+    color: var(--unobtrusive-color);
+    list-style: none;
   }
 
-  #skills dd {
-    display: inline;
-    margin-left: 0.25rem;
-    font-size: 0.85em;
+  #skills .skills {
+    padding: 0;
+  }
+
+  #skills small {
+    color: var(--unobtrusive-color);
+    white-space: nowrap;
+  }
+
+  #languages dl {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 1.5rem;
+    margin: 0;
+  }
+
+  #languages div {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  #languages dt {
+    font-weight: 700;
+  }
+
+  #languages dd {
+    margin: 0;
+    color: var(--unobtrusive-color);
+    font-weight: 200;
+  }
+
+  &.brief-en {
+    #experience {
+      margin-top: 0.4rem;
+    }
+  }
+
+  &.brief-de {
+    .entry {
+      grid-template-columns: minmax(112px, 26mm) minmax(0, 1fr);
+    }
+
+    #skills .skill-group h4 {
+      margin-bottom: 0.1rem;
+    }
   }
 }
 
@@ -583,6 +695,7 @@ $icons: (
 
   #abstract,
   #interests,
+  #languages,
   #references dl {
     break-inside: avoid;
     page-break-inside: avoid;
@@ -610,33 +723,43 @@ $icons: (
   }
 
   .variant-brief {
-    font-size: 8pt;
+    font-size: 8.6pt;
+
+    .intro {
+      grid-template-columns: minmax(0, 1fr) minmax(36mm, 50mm);
+      column-gap: 8pt;
+    }
 
     #header__name {
       font-size: 27pt;
     }
 
     #header__profession {
-      font-size: 10.5pt;
+      font-size: 10.2pt;
     }
 
     #abstract p {
-      margin-top: 5pt;
       font-size: 9pt;
       line-height: 1.25;
     }
 
     h3 {
-      margin: 7pt 0 3pt;
-      font-size: 10pt;
+      margin: 6.5pt 0 3pt;
+      font-size: 9.4pt;
     }
 
     #contact {
-      margin-top: 4pt;
+      margin-top: 2pt;
+      font-size: 8pt;
+      line-height: 1.25;
+    }
+
+    #contact li {
+      margin-bottom: 1pt;
     }
 
     .entry {
-      grid-template-columns: minmax(104px, 28mm) minmax(0, 1fr);
+      grid-template-columns: minmax(116px, 30mm) minmax(0, 1fr);
       column-gap: 6pt;
       margin-bottom: 4pt;
     }
@@ -650,24 +773,39 @@ $icons: (
       padding-left: 10pt;
     }
 
+    .brief-skill-line {
+      grid-template-columns: minmax(112px, 30mm) minmax(0, 1fr);
+      column-gap: 6pt;
+    }
+
     #skills .skill-groups {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 3pt 8pt;
       margin-top: 2pt;
     }
 
     #skills .skill-group h4 {
       margin-bottom: 1pt;
-      font-size: 8.5pt;
+      font-size: 7.8pt;
     }
 
     #skills .skill {
       border-bottom: 0;
-      line-height: 1.2;
+      line-height: 1.15;
     }
 
-    #skills dd {
+    #skills small {
       font-size: 7pt;
+    }
+
+    #languages dl {
+      gap: 2pt 8pt;
+    }
+
+    &.brief-de {
+      .entry {
+        grid-template-columns: minmax(84px, 22mm) minmax(0, 1fr);
+      }
     }
   }
 }

@@ -3,13 +3,36 @@ theme: classic
 name: Till Breuer
 email: breuertill@gmail.com
 meta_description: Curriculum Vitae of Till Breuer
-profession: Mathematician. Data Scientist. Software Developer.
+profession: Data Scientist. ML Engineer. Software Engineer.
 fonts_url: "https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,400;0,700;1,400&display=swap"
 
 abstract: >-
-  <em>Data Scientist</em> with a math diploma from University of Münster
-  and a background in <em>machine learning</em>, <em>software development</em>
+  <em>Data Scientist</em> and experienced <em>software engineer</em> with a math
+  diploma from University of Münster and a background in <em>machine learning</em>
   and <em>statistical modelling</em>.
+
+brief_profile: >-
+  Senior <em>Data Scientist / ML Engineer</em> and experienced
+  <em>software engineer</em> building production ML systems, cloud data
+  pipelines and applied computer-vision, NLP and recommender solutions.
+
+contact_links:
+  - id: email
+    icon: envelope
+    label: breuertill@gmail.com
+    url: mailto:breuertill@gmail.com
+  - id: linkedin
+    icon: linkedin
+    label: LinkedIn
+    url: https://www.linkedin.com/in/till-breuer-7491b599/
+  - id: github
+    icon: github
+    label: "GitHub: tilt"
+    url: https://github.com/tilt
+  - id: gitlab
+    icon: gitlab
+    label: "GitLab: tillt"
+    url: https://gitlab.com/tillt
 
 pdf_file: lebenslauf_till_breuer.pdf
 brief_pdf_file: lebenslauf_till_breuer_brief.pdf
@@ -24,9 +47,11 @@ variant_switcher:
   brief_label: Brief CV
 
 sections:
+  profile: Profile
   education: Education
   experience: Experience
   skills: Skills
+  languages: Languages
   interests: Interests
   references: References
 

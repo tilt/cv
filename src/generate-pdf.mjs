@@ -198,7 +198,7 @@ async function renderAll(browser, byLang, origin) {
         const probe = await page.evaluate((selectors) => {
           const missing = selectors.filter((s) => !document.querySelector(s));
           const entryCount = document.querySelectorAll('.entry').length;
-          const skillCount = document.querySelectorAll('#skills .skill').length;
+          const skillCount = document.querySelectorAll('#skills .skill, #skills .brief-skill-line').length;
           const entry = document.querySelector('.entry');
           const entryDisplay = entry ? getComputedStyle(entry).display : null;
           // FontAwesome is a local, required font (drives the section icons).

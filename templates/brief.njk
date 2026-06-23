@@ -3,27 +3,27 @@
   <head>
     {% include "partials/head.njk" %}
   </head>
-  <body class="variant-brief">
+  <body class="variant-brief brief-{{ lang }}">
 {% include "partials/header.njk" %}
 
-    <main class="brief-layout">
-      <section id="abstract">
-        <p>{{ abstract | safe }}</p>
+    <main class="brief-layout brief-layout--{{ lang }}">
+      <section id="abstract" class="brief-profile">
+        <h3>{{ sections.profile }}</h3>
+        <p>{{ brief_profile | default(abstract) | safe }}</p>
       </section>
 
-{% include "partials/skills.njk" %}
-
+      {% if lang == "en" %}
       <section id="experience">
-        <h3><span><i class="fa fa-{{ icons.experience }}" aria-hidden="true"></i> {{ sections.experience }}</span></h3>
+        <h3>{{ sections.experience }}</h3>
         <div class="entries">
           {% for entry in experience %}
           <article class="entry brief-entry" id="experience-{{ entry.id }}">
             <header class="entry__aside">
+              <p class="period">{{ entry.period }}</p>
               <p class="company">{{ entry.company }}</p>
               {% if entry.company_details %}
               <small class="company-details">{{ entry.company_details }}</small>
               {% endif %}
-              <p class="period">{{ entry.period }}</p>
             </header>
             <div class="entry__main">
               <p class="employment">{{ entry.title }}</p>
@@ -41,9 +41,25 @@
         </div>
       </section>
 
+      <section id="skills" class="brief-skills brief-skills--lines">
+        <h3>{{ sections.skills }}</h3>
+        <dl class="brief-skill-lines">
+          {% for group in skills %}
+          <div class="brief-skill-line">
+            <dt>{{ group.category | safe }}</dt>
+            <dd>
+              {% for skill in group.items -%}
+              {{ skill.name | safe }}{% if skill.experience %} ({{ skill.experience }}){% endif %}{% if not loop.last %}, {% endif %}
+              {%- endfor %}
+            </dd>
+          </div>
+          {% endfor %}
+        </dl>
+      </section>
+
       <section id="education">
-        <h3><span><i class="fa fa-{{ icons.education }}" aria-hidden="true"></i> {{ sections.education }}</span></h3>
-        <div class="entries">
+        <h3>{{ sections.education }}</h3>
+        <div class="entries entries--compact">
           {% for entry in education %}
           <article class="entry brief-entry" id="education-{{ entry.id }}">
             <header class="entry__aside">
@@ -57,6 +73,87 @@
           {% endfor %}
         </div>
       </section>
+      {% else %}
+      <section id="experience">
+        <h3>{{ sections.experience }}</h3>
+        <div class="entries">
+          {% for entry in experience %}
+          <article class="entry brief-entry" id="experience-{{ entry.id }}">
+            <header class="entry__aside">
+              <p class="period">{{ entry.period }}</p>
+            </header>
+            <div class="entry__main">
+              <p class="employment">
+                <span class="employment__title">{{ entry.title }}</span>
+                <span class="employment__company">{{ entry.company }}</span>
+              </p>
+              {% if entry.company_details %}
+              <p class="company-details">{{ entry.company_details }}</p>
+              {% endif %}
+              {% if entry.brief_summary %}<p class="brief-summary">{{ entry.brief_summary | safe }}</p>{% endif %}
+              {% if entry.brief_points %}
+              <ul class="brief-points">
+                {% for point in entry.brief_points %}
+                <li>{{ point | safe }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section id="education">
+        <h3>{{ sections.education }}</h3>
+        <div class="entries entries--compact">
+          {% for entry in education %}
+          <article class="entry brief-entry" id="education-{{ entry.id }}">
+            <header class="entry__aside">
+              <p class="period">{{ entry.period }}</p>
+            </header>
+            <div class="entry__main">
+              <p class="school">{{ entry.school }}</p>
+              <p class="school-details">{{ entry.details | safe }}</p>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section id="skills" class="brief-skills brief-skills--table">
+        <h3>{{ sections.skills }}</h3>
+        <div class="skill-groups">
+          {% for group in skills %}
+          <section class="skill-group" aria-labelledby="skills-{{ group.id }}">
+            <h4 id="skills-{{ group.id }}">{{ group.category | safe }}</h4>
+            <ul class="skills">
+              {% for skill in group.items %}
+              <li class="skill">
+                <span>{{ skill.name | safe }}</span>
+                {% if skill.experience %}<small>{{ skill.experience }}</small>{% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
+          {% endfor %}
+        </div>
+      </section>
+
+      {% if language_skills %}
+      <section id="languages" class="brief-languages">
+        <h3>{{ sections.languages }}</h3>
+        <dl>
+          {% for item in language_skills %}
+          <div>
+            <dt>{{ item.language }}</dt>
+            <dd>{{ item.level }}</dd>
+          </div>
+          {% endfor %}
+        </dl>
+      </section>
+      {% endif %}
+      {% endif %}
     </main>
 
 {% include "partials/footer.njk" %}
