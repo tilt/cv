@@ -4,13 +4,13 @@
         <h2 id="header__profession">{{ profession }}</h2>
       </header>
       <div class="contact-and-lang">
-        <address id="contact" aria-label="Contact">
-          <table>
-            <tr class="mail">
-              <td><i class="fa fa-envelope" aria-hidden="true"></i></td>
-              <td><a href="mailto:{{ email }}">{{ email }}</a></td>
-            </tr>
-          </table>
+        <address id="contact">
+          <ul class="contact-list">
+            <li class="mail">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:{{ email }}">{{ email }}</a>
+            </li>
+          </ul>
         </address>
         <nav class="lang-switcher">
           <a href="{{ lang_switcher.url }}">{{ lang_switcher.flag }} {{ lang_switcher.label }}</a>

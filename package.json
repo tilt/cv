@@ -6,13 +6,17 @@
     "build:css": "sass src/styles/styles.scss dist/assets/styles.css --style=expanded --no-source-map",
     "build:html": "node src/build.mjs",
     "build": "npm run build:css && npm run build:html",
+    "pdf": "node src/generate-pdf.mjs",
+    "build:prod": "npm run build && npm run pdf",
     "watch:css": "sass src/styles/styles.scss dist/assets/styles.css --style=expanded --no-source-map --watch",
-    "validate": "html-validate dist/index.html dist/de/index.html"
+    "validate": "html-validate dist/index.html dist/de/index.html",
+    "validate:data": "node src/validate-data.mjs"
   },
   "devDependencies": {
     "html-validate": "^9.7.1",
     "js-yaml": "^5.0.0",
     "nunjucks": "^3.2.4",
+    "playwright": "^1.61.0",
     "sass": "^1.101.0"
   }
 }

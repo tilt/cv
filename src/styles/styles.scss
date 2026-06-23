@@ -68,11 +68,6 @@ body {
   line-height: 1.4;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
 h2,
 h3 {
   color: var(--accent-color);
@@ -140,6 +135,7 @@ $icons: (
   clock-o: "\f017",
   flask: "\f0c3",
   comments: "\f086",
+  code: "\f121",
   github: "\f09b"
 );
 
@@ -178,22 +174,28 @@ $icons: (
   color: inherit;
   font-style: normal;
 
-  table {
-    width: auto;
-    margin-left: auto;
+  .contact-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  td:first-child {
-    width: 20px;
-    padding: 4px;
-    text-align: center;
+  li {
+    display: flex;
+    gap: 0.4rem;
+    align-items: baseline;
+    justify-content: flex-end;
+  }
+
+  .fa {
+    color: var(--unobtrusive-color);
   }
 }
 
 #abstract,
 #education,
 #experience,
-#voluntary-experience,
+#skills,
 #interests,
 #references,
 #footer {
@@ -206,23 +208,38 @@ $icons: (
   font-weight: 200;
 }
 
-#experience,
-#voluntary-experience,
-#education {
-  td:first-child {
-    width: 20%;
-    min-width: 160px;
-    max-width: 15rem;
-    padding-right: 1rem;
-  }
+// ---------------------------------------------------------------------------
+// Education & experience entries: a shared, semantic two-column layout.
+// ---------------------------------------------------------------------------
+.entries {
+  margin-top: 0.5rem;
+}
 
-  td {
-    padding-bottom: 0.5rem;
-    vertical-align: top;
+.entry {
+  display: grid;
+  grid-template-columns: minmax(160px, 15rem) minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.entry__aside {
+  p {
+    margin: 0;
+  }
+}
+
+.entry__main {
+  p {
+    margin: 0;
   }
 }
 
 #education {
+  .school {
+    font-weight: 400;
+  }
+
   .period,
   .school-details {
     color: var(--unobtrusive-color);
@@ -230,28 +247,24 @@ $icons: (
   }
 }
 
-#experience,
-#voluntary-experience {
+#experience {
   .period {
     margin-top: 0.5rem;
     color: var(--unobtrusive-color);
     font-weight: 200;
   }
 
-  .company,
-  .organisation {
+  .company {
     font-weight: bold;
   }
 
-  .company-details,
-  .organisation-details {
+  .company-details {
     display: block;
     color: var(--unobtrusive-color);
     font-weight: normal;
   }
 
-  .employment-details,
-  .activity-details {
+  .employment-details {
     color: var(--unobtrusive-color);
     font-weight: 200;
 
@@ -266,7 +279,42 @@ $icons: (
   }
 }
 
+// ---------------------------------------------------------------------------
+// Skills: a semantic description list (technology → years), no ratings.
+// ---------------------------------------------------------------------------
+#skills .skills {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.15rem 2rem;
+  margin: 0.5rem 0 0;
+}
+
+#skills .skill {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.1rem 0;
+  border-bottom: 1px dotted var(--unobtrusive-color);
+}
+
+#skills dt {
+  font-weight: 400;
+}
+
+#skills dd {
+  margin: 0;
+  color: var(--unobtrusive-color);
+  font-weight: 200;
+  white-space: nowrap;
+}
+
+#references dl {
+  margin: 0.5rem 0;
+}
+
 #references dd {
+  margin: 0;
   color: var(--unobtrusive-color);
   font-weight: 200;
 }
@@ -298,41 +346,38 @@ $icons: (
   text-align: center;
 }
 
+// ---------------------------------------------------------------------------
+// Screen-only decoration: a vertical accent rail beside each entry's aside.
+// ---------------------------------------------------------------------------
 @media screen {
-  #experience,
-  #voluntary-experience,
-  #education {
-    table {
-      margin-left: 0.6rem;
-    }
+  .entries {
+    margin-left: 0.6rem;
+  }
 
-    tr {
-      margin-top: 0.6rem;
-    }
+  .entry__aside {
+    position: relative;
+    padding-left: 1rem;
 
-    td {
-      border-bottom: 1rem solid var(--background-color);
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      border-left: 1px solid var(--accent-color);
+      content: "";
+      // Hidden by default; revealed only while the entry is hovered.
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
     }
+  }
 
-    td:first-child {
-      position: relative;
-      padding-left: 1rem;
-
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        border-left: 1px solid var(--accent-color);
-        content: "";
-        transition: all 0.2s ease-out;
-      }
-    }
+  .entry:hover .entry__aside::before {
+    opacity: 1;
   }
 }
 
-@media (max-width: 700px) {
+@media screen and (max-width: 700px) {
   .intro {
     grid-template-columns: 1fr;
   }
@@ -342,8 +387,8 @@ $icons: (
     margin-left: 1rem;
   }
 
-  #contact table {
-    margin-left: 0;
+  #contact li {
+    justify-content: flex-start;
   }
 
   #abstract p {
@@ -351,7 +396,7 @@ $icons: (
   }
 }
 
-@media (max-width: 525px) {
+@media screen and (max-width: 525px) {
   #header__name {
     font-size: 3.5rem;
   }
@@ -360,32 +405,24 @@ $icons: (
     font-size: 1.15rem;
   }
 
-  #experience,
-  #voluntary-experience,
-  #education {
-    table,
-    tbody,
-    tr,
-    td {
-      display: block;
-    }
+  .entry {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--accent-color);
+  }
 
-    tr {
-      margin-bottom: 1rem;
-      padding-left: 1rem;
-      border-left: 1px solid var(--accent-color);
-    }
+  .entry__aside {
+    padding-left: 0;
 
-    td:first-child {
-      width: 100%;
-      max-width: none;
-      padding-left: 0;
-      border: 0;
-
-      &::before {
-        display: none;
-      }
+    &::before {
+      display: none;
     }
+  }
+
+  #skills .skills {
+    grid-template-columns: 1fr;
   }
 
   #interests ul {
@@ -393,7 +430,7 @@ $icons: (
   }
 }
 
-@media (max-width: 380px) {
+@media screen and (max-width: 380px) {
   #header__name {
     font-size: 2.8rem;
     text-align: center;
@@ -403,19 +440,8 @@ $icons: (
     text-align: center;
   }
 
-  #contact {
-    table,
-    tr {
-      display: block;
-      width: initial;
-      margin-right: auto;
-      margin-left: auto;
-      text-align: center;
-    }
-
-    td {
-      display: inline;
-    }
+  #contact li {
+    justify-content: center;
   }
 
   .lang-switcher {
@@ -427,32 +453,74 @@ $icons: (
   }
 }
 
+// ---------------------------------------------------------------------------
+// Print / PDF. Page sizing lives in @page so Playwright's preferCSSPageSize
+// can honour it without duplicated margins in JavaScript.
+// ---------------------------------------------------------------------------
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
 @media print {
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   html,
   body {
-    font-size: 84%;
+    font-size: 8.5pt;
   }
 
   body {
     max-width: none;
+    margin: 0;
     padding: 0;
+    // White "paper" for print/PDF, independent of the on-screen theme
+    // background. printBackground stays enabled so the coloured accents,
+    // headings and links still render predictably.
+    background: #fff;
   }
 
-  #abstract,
-  #education,
-  #experience tr,
-  #voluntary-experience,
-  #interests,
-  #references,
-  #footer {
+  // Keep individual entries intact rather than whole sections.
+  h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .entry,
+  #skills .skill {
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
-  .lang-switcher {
-    display: none;
+  #abstract,
+  #interests,
+  #references dl {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
+  // Two-column entry layout stays consistent on the printed page.
+  .entry {
+    grid-template-columns: minmax(150px, 13rem) minmax(0, 1fr);
+  }
+
+  // Readable links, no animated hover underline.
+  a {
+    color: var(--link-color);
+    text-decoration: underline;
+  }
+
+  a::before {
+    display: none;
+    content: none;
+  }
+
+  .lang-switcher,
   #footer {
     display: none;
   }

@@ -1,9 +1,6 @@
 {
   "extends": ["html-validate:recommended"],
   "rules": {
-    "doctype-style": "off",
-    "prefer-tbody": "off",
-    "aria-label-misuse": "off",
-    "unique-landmark": "off"
+    "doctype-style": "off"
   }
 }

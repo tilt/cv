@@ -1,0 +1,38 @@
+lang: en
+theme: classic
+name: Till Breuer
+email: breuertill@gmail.com
+meta_description: Curriculum Vitae of Till Breuer
+profession: Mathematician. Data Scientist. Software Developer.
+fonts_url: "https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,400;0,700;1,400&display=swap"
+
+abstract: >-
+  <em>Data Scientist</em> with a math diploma from University of Münster
+  and a background in <em>machine learning</em>, <em>software development</em>
+  and <em>statistical modelling</em>.
+
+pdf_file: lebenslauf_till_breuer.pdf
+pdf_label: PDF
+
+lang_switcher:
+  label: Deutsch
+  flag: "🇩🇪"
+  url: /de/
+
+sections:
+  education: Education
+  experience: Experience
+  skills: Skills
+  interests: Interests
+  references: References
+
+icons:
+  education: book
+  experience: clock-o
+  skills: code
+  interests: flask
+  references: comments
+
+footer:
+  theme_credit: 'The color scheme is derived from <a href="http://ethanschoonover.com/solarized">solarized</a>.'
+  download_prompt: "Download the"

@@ -4,7 +4,7 @@ NVM_DIR ?= $(HOME)/.nvm
 NODE_VERSION := $(shell cat .nvmrc)
 NVM := . "$(NVM_DIR)/nvm.sh" && nvm use >/dev/null &&
 
-.PHONY: ensure-node install build watch serve check deploy clean
+.PHONY: ensure-node install install-browser build pdf build-prod watch serve check check-prod deploy clean
 
 ensure-node:
 	@if [ ! -s "$(NVM_DIR)/nvm.sh" ]; then \
@@ -21,9 +21,21 @@ ensure-node:
 
 install: ensure-node
 	$(NVM) npm install
+	$(NVM) npx playwright install chromium
+
+install-browser: ensure-node
+	$(NVM) npx playwright install chromium
 
 build: ensure-node
 	$(NVM) npm run build
+
+# Build the web output, then render both PDFs from it with Playwright.
+pdf: build
+	$(NVM) npm run pdf
+
+# Complete production build: web output + bilingual PDFs into dist/.
+build-prod: ensure-node
+	$(NVM) npm run build:prod
 
 watch: ensure-node
 	$(NVM) npm run watch:css
@@ -31,10 +43,16 @@ watch: ensure-node
 serve: build
 	$(NVM) npx serve dist
 
+# Fast check: web build + HTML validation.
 check: build
 	$(NVM) npm run validate
 
-deploy: check
+# Canonical pre-push check of the complete deployed artifact:
+# data validation + web build + HTML validation + both PDFs.
+check-prod: build-prod
+	$(NVM) npm run validate
+
+deploy: check-prod
 	git push origin HEAD
 
 clean:

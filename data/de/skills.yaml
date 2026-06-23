@@ -1,0 +1,31 @@
+# Technologien aus dem freiberuflichen Eintrag extrahiert.
+# Sachlicher Name + selbst angegebene Jahre an Erfahrung. Keine subjektiven Bewertungen.
+skills:
+  - name: Python
+    experience: 10 Jahre
+  - name: SQL &amp; relationale Datenbanken
+    experience: 15 Jahre
+  - name: pandas
+    experience: 10 Jahre
+  - name: scikit-learn
+    experience: 10 Jahre
+  - name: PyTorch
+    experience: 5 Jahre
+  - name: matplotlib, altair
+    experience: 10 Jahre
+  - name: Elasticsearch und ELK-Stack
+    experience: 5 Jahre
+  - name: GCloud &amp; BigQuery
+    experience: 2 Jahre
+  - name: AWS
+    experience: 1 Jahr
+  - name: dbt
+    experience: 1 Jahr
+  - name: Airflow
+    experience: 1 Jahr
+  - name: Keras + Tensorflow
+    experience: 3 Jahre
+  - name: Ruby
+    experience: 7 Jahre
+  - name: JavaScript, AngularJS
+    experience: 5 Jahre

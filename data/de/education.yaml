@@ -1,0 +1,23 @@
+education:
+  - id: muenster-diploma
+    period: "10/2004 - 06/2010"
+    school: Universität Münster
+    details: "Diplom in Mathematik / Wahrscheinlichkeitstheorie &#8709; 1,2"
+    thesis_grade: "1,3"
+    thesis_title: "Zur Rekurrenz von Random Walks"
+    thesis_file: thesis.pdf
+    variants: [full, brief]
+
+  - id: mannheim-ba
+    period: "10/2001 - 10/2004"
+    school: Berufsakademie Mannheim
+    details: "Diplom in Informationstechnik (BA) &#8709; 1,5"
+    thesis_grade: "1,4"
+    thesis_title: "Entwurf einer Architektur zur Publikation von Unternehmensverzeichnissen im Intranet"
+    variants: [full]
+
+  - id: abitur
+    period: "1991 - 2000"
+    school: "Gymnasium Am Geroweiher, Mönchengladbach"
+    details: "Abitur &#8709; 1,4"
+    variants: [full]

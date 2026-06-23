@@ -1,20 +1,20 @@
     <section id="experience">
       <h3><span><i class="fa fa-{{ icons.experience }}" aria-hidden="true"></i> {{ sections.experience }}</span></h3>
-      <table>
+      <div class="entries">
         {% for entry in experience %}
-        <tr>
-          <td class="company">
-            {{ entry.company }}
+        <article class="entry" id="experience-{{ entry.id }}">
+          <header class="entry__aside">
+            <p class="company">{{ entry.company }}</p>
             <small class="company-details">{{ entry.company_details }}</small>
-            <aside class="period">{{ entry.period }}</aside>
-          </td>
-          <td class="employment">
-            {{ entry.title }}
-            <aside class="employment-details">
+            <p class="period">{{ entry.period }}</p>
+          </header>
+          <div class="entry__main">
+            <p class="employment">{{ entry.title }}</p>
+            <div class="employment-details">
               {{ entry.description | safe }}
-            </aside>
-          </td>
-        </tr>
+            </div>
+          </div>
+        </article>
         {% endfor %}
-      </table>
+      </div>
     </section>

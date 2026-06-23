@@ -1,59 +1,6 @@
-lang: en
-theme: classic
-name: Till Breuer
-email: breuertill@gmail.com
-meta_description: Curriculum Vitae of Till Breuer
-profession: Mathematician. Data Scientist. Software Developer.
-fonts_url: "https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,400;0,700;1,400&display=swap"
-
-abstract: >-
-  <em>Data Scientist</em> with a math diploma from University of Münster
-  and a background in <em>machine learning</em>, <em>software development</em>
-  and <em>statistical modelling</em>.
-
-pdf_file: lebenslauf_till_breuer.pdf
-pdf_label: PDF
-
-lang_switcher:
-  label: Deutsch
-  flag: "🇩🇪"
-  url: /de/
-
-sections:
-  education: Education
-  experience: Experience
-  interests: Interests
-  references: References
-
-icons:
-  education: book
-  experience: clock-o
-  interests: flask
-  references: comments
-
-education:
-  - period: "10/2004 - 06/2010"
-    school: University of Münster
-    details: "Diploma in Mathematics / Probability Theory &#8709; 1.2"
-    thesis_grade: "1.3"
-    thesis_title: "Zur Rekurrenz von Random Walks"
-    thesis_file: thesis.pdf
-    variants: [full, brief]
-
-  - period: "10/2001 - 10/2004"
-    school: Berufsakademie Mannheim
-    details: "Diploma in Information Technology (BA) &#8709; 1.5"
-    thesis_grade: "1.4"
-    thesis_title: "Entwurf einer Architektur zur Publikation von Unternehmensverzeichnissen im Intranet"
-    variants: [full]
-
-  - period: "1991 - 2000"
-    school: "Gymnasium Am Geroweiher, Mönchengladbach"
-    details: "Abitur &#8709; 1.4"
-    variants: [full]
-
 experience:
-  - period: 8/2019 - present
+  - id: freelance
+    period: 8/2019 - present
     company: Freelance
     company_details: Self-employed
     title: Data Scientist
@@ -73,27 +20,10 @@ experience:
         <li>Design and implementation of recommendation microservices for production news sites</li>
         <li>Data pipelines and data warehouse design &amp; implementation on AWS and GCloud with dbt and Airflow</li>
       </ul>
-
-      <h4>Technology stack</h4>
-      <ul>
-        <li>Python (10 years)</li>
-        <li>SQL &amp; relational databases (15 years)</li>
-        <li>pandas (10 years)</li>
-        <li>scikit-learn (10 years)</li>
-        <li>PyTorch (5 years)</li>
-        <li>matplotlib, altair (10 years)</li>
-        <li>Elasticsearch and ELK-stack (5 years)</li>
-        <li>GCloud &amp; BigQuery (2 years)</li>
-        <li>AWS (1 year)</li>
-        <li>dbt (1 year)</li>
-        <li>Airflow (1 year)</li>
-        <li>Keras + Tensorflow (3 years)</li>
-        <li>Ruby (7 years)</li>
-        <li>JavaScript, AngularJS (5 years)</li>
-      </ul>
     variants: [full, brief]
 
-  - period: 2/2020 - 10/2021
+  - id: mediaire
+    period: 2/2020 - 10/2021
     company: mediaire GmbH
     company_details: AI-software for radiologists
     title: Senior Data Scientist
@@ -107,7 +37,8 @@ experience:
       </ul>
     variants: [full]
 
-  - period: 6/2017 - 8/2019
+  - id: twenty-billion-neurons
+    period: 6/2017 - 8/2019
     company: Twenty Billion Neurons GmbH
     company_details: Realtime video understanding
     title: A.I. Engineer / Senior A.I. Engineer
@@ -122,7 +53,8 @@ experience:
       </ul>
     variants: [full]
 
-  - period: 11/2014 - 6/2017
+  - id: unbelievable-machine
+    period: 11/2014 - 6/2017
     company: The unbelievable Machine Company GmbH
     company_details: Cloud Service Provider and Full Service Provider for Data Solutions
     title: Data Scientist
@@ -146,7 +78,8 @@ experience:
       </ul>
     variants: [full]
 
-  - period: 8/2014 - 10/2014
+  - id: bitcrowd
+    period: 8/2014 - 10/2014
     company: bitcrowd GmbH
     company_details: Web Development Consultancy
     title: Freelance Software Developer
@@ -160,7 +93,8 @@ experience:
       </ul>
     variants: [full]
 
-  - period: 10/2013 - 8/2014
+  - id: finn
+    period: 10/2013 - 8/2014
     company: finn GmbH / openproject
     company_details: Software Development Consultancy
     title: Software Developer
@@ -175,7 +109,8 @@ experience:
       </ul>
     variants: [full]
 
-  - period: 6/2010 - 10/2013
+  - id: zweitag
+    period: 6/2010 - 10/2013
     company: Zweitag GmbH
     company_details: Ruby on Rails Consultancy
     title: Software Developer
@@ -190,7 +125,8 @@ experience:
       </ul>
     variants: [full]
 
-  - period: 8/2010 - 10/2011
+  - id: ims-research-assistant
+    period: 8/2010 - 10/2011
     company: Institute of Mathematical Statistics
     company_details: of the University of Münster
     title: Research assistant
@@ -198,7 +134,8 @@ experience:
       <p>As a research assistant at the institute for probability theory at the University of Münster I was mentor for seminars in probability theory and statistical modelling. Besides I lead the internship for applied statistics with R. I did research in the field of renewal theory exploring structural inheritance properties of Markov renewal processes. Meanwhile I worked as a software developer at Zweitag GmbH (see above).</p>
     variants: [full]
 
-  - period: 10/2008 - 3/2010
+  - id: fairix
+    period: 10/2008 - 3/2010
     company: Fairix
     company_details: Startup
     title: Software developer, CTO
@@ -206,7 +143,8 @@ experience:
       <p>Fairix is a startup I took part in as a software engineer while I was a student of mathematics. Fairix provided a platform to producers and merchants enabling them to offer products with additional ecological or social value, e.g. fair trade products. In an engineering team of two we developed a marketplace platform with Ruby on Rails. For that purpose I learnt Rails from scratch and I was leading the development in the later course of the project when the platform launched. The startup finally ran out of funds after two years.</p>
     variants: [full]
 
-  - period: 8/2007 - 9/2007
+  - id: bsi
+    period: 8/2007 - 9/2007
     company: "Bundesamt für Sicherheit in der Informationstechnik"
     company_details: (BSI)
     title: Research engineer (Pattern recognition)
@@ -214,30 +152,11 @@ experience:
       <p>At my internship at the BSI I worked on research topics about malware classification. The internship lasted two months and together with my mentor I implemented a pattern recognition and a clustering approach to identify and distinguish malware by the kinds of exploits it used. The software had to be extremely performant and of linear complexity and was written in C.</p>
     variants: [full]
 
-  - period: 10/2006 - 3/2008
+  - id: ims-tutor
+    period: 10/2006 - 3/2008
     company: Institute of Mathematical Statistics
     company_details: of the University of Münster
     title: Tutor in linear algebra / functional analysis
     description: |
       <p>Tutorials and correction of student homework.</p>
     variants: [full]
-
-interests:
-  - Music
-  - Sports
-  - Reading
-  - "Mathematics, Physics, Computer Science, Biology"
-  - Studying
-  - Code design
-
-references:
-  - name: "Stefan Otte, former Lead Data Scientist at paretos GmbH"
-    url: "https://www.paretos.com/de/home"
-    relation: was my team lead at paretos
-  - name: "Nicolas Gorges, Lead Data Scientist at Birds on Mars GmbH"
-    url: "https://www.birdsonmars.com"
-    relation: was my team lead at The unbelievable Machine Company
-
-footer:
-  theme_credit: 'The color scheme is derived from <a href="http://ethanschoonover.com/solarized">solarized</a>.'
-  download_prompt: "Download the"

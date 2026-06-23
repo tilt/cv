@@ -1,8 +1,8 @@
-import { readFileSync, writeFileSync, mkdirSync, cpSync, existsSync } from 'fs';
+import { writeFileSync, mkdirSync, cpSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { load as yamlLoad } from 'js-yaml';
 import nunjucks from 'nunjucks';
+import { LANGUAGES, VARIANTS, loadAllLanguages, validateData } from './data.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
@@ -11,6 +11,11 @@ const dist = resolve(root, 'dist');
 const variant = process.argv.includes('--variant')
   ? process.argv[process.argv.indexOf('--variant') + 1]
   : 'full';
+
+if (!VARIANTS.includes(variant)) {
+  console.error(`✖ Unknown variant "${variant}" (allowed: ${VARIANTS.join(', ')})`);
+  process.exit(1);
+}
 
 const basePath = (process.argv.includes('--base')
   ? process.argv[process.argv.indexOf('--base') + 1]
@@ -21,11 +26,24 @@ const env = new nunjucks.Environment(
   { autoescape: false, trimBlocks: true, lstripBlocks: true }
 );
 
-const languages = ['en', 'de'];
+// Load every language up front and validate before rendering anything, so a
+// data problem fails the build with a clear, file-scoped message.
+let byLang;
+try {
+  byLang = loadAllLanguages(root);
+} catch (error) {
+  console.error(`✖ ${error.message}`);
+  process.exit(1);
+}
+const errors = validateData(byLang);
+if (errors.length > 0) {
+  console.error(`✖ Data validation failed (${errors.length}):`);
+  for (const error of errors) console.error(`  - ${error}`);
+  process.exit(1);
+}
 
-for (const lang of languages) {
-  const raw = readFileSync(resolve(root, 'data', `cv.${lang}.yaml`), 'utf8');
-  const data = yamlLoad(raw);
+for (const lang of LANGUAGES) {
+  const data = byLang[lang];
 
   data.basePath = basePath;
   data.lang_switcher.url = basePath + data.lang_switcher.url;
@@ -47,7 +65,9 @@ for (const lang of languages) {
 mkdirSync(resolve(dist, 'assets', 'fonts'), { recursive: true });
 cpSync(resolve(root, 'assets', 'fonts'), resolve(dist, 'assets', 'fonts'), { recursive: true });
 
-const staticFiles = ['thesis.pdf', 'lebenslauf_till_breuer.pdf', 'lebenslauf_till_breuer_de.pdf', '.nojekyll'];
+// Static source assets only. The CV PDFs are produced by src/generate-pdf.mjs
+// from the built HTML and must not be copied from the repository root.
+const staticFiles = ['thesis.pdf', '.nojekyll'];
 for (const file of staticFiles) {
   const src = resolve(root, file);
   if (existsSync(src)) {
@@ -55,4 +75,4 @@ for (const file of staticFiles) {
   }
 }
 
-console.log(`Built ${languages.length} languages (variant: ${variant}) → dist/`);
+console.log(`Built ${LANGUAGES.length} languages (variant: ${variant}) → dist/`);
