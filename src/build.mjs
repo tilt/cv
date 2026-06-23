@@ -32,6 +32,32 @@ const env = new nunjucks.Environment(
   { autoescape: false, trimBlocks: true, lstripBlocks: true }
 );
 
+const FONT_FILES = [
+  'fontawesome-webfont.woff2',
+  'fontawesome-webfont.woff',
+  'fontawesome-webfont.ttf',
+];
+
+function copyFontAwesomeFonts() {
+  const sourceDir = resolve(root, 'node_modules', 'font-awesome', 'fonts');
+  const targetDir = resolve(dist, 'assets', 'fonts');
+
+  if (!existsSync(sourceDir)) {
+    console.error('✖ FontAwesome fonts are missing. Run "npm install" before building.');
+    process.exit(1);
+  }
+
+  mkdirSync(targetDir, { recursive: true });
+  for (const file of FONT_FILES) {
+    const source = resolve(sourceDir, file);
+    if (!existsSync(source)) {
+      console.error(`✖ FontAwesome font file is missing: ${source}`);
+      process.exit(1);
+    }
+    cpSync(source, resolve(targetDir, file));
+  }
+}
+
 // Load every language up front and validate before rendering anything, so a
 // data problem fails the build with a clear, file-scoped message.
 let byLang;
@@ -93,8 +119,7 @@ for (const variant of variantsToBuild) {
   }
 }
 
-mkdirSync(resolve(dist, 'assets', 'fonts'), { recursive: true });
-cpSync(resolve(root, 'assets', 'fonts'), resolve(dist, 'assets', 'fonts'), { recursive: true });
+copyFontAwesomeFonts();
 
 // Static source assets only. The CV PDFs are produced by src/generate-pdf.mjs
 // from the built HTML and must not be copied from the repository root.

@@ -10,7 +10,7 @@ Playwright (headless Chromium).
 - GitHub Pages project base-path support (`/cv`)
 - Theme support, full and brief variants
 - Build-time data validation and HTML validation
-- Minimal Font Awesome icon subset, no analytics, no Hugo
+- Local Font Awesome icons copied from a pinned npm dependency; no analytics, no Hugo
 
 ## Requirements
 
@@ -58,7 +58,6 @@ src/
   generate-pdf.mjs    Serves dist/ and renders the EN/DE PDFs with Playwright
   validate-data.mjs   Standalone data validation CLI
   styles/             Sass source
-assets/fonts/         Font Awesome subset (copied into dist/)
 thesis.pdf            Static source asset (linked from the CV)
 dist/                 Generated output (gitignored)
 ```
@@ -207,7 +206,9 @@ One-time setup: in **Settings → Pages**, set **Source** to **GitHub Actions**.
 ## Generated vs. tracked files
 
 - Generated (gitignored): everything under `dist/`, including the full and brief
-  CV PDFs and the copied fonts/`thesis.pdf`. The CV PDFs are **not** checked in
-  — they are produced from the HTML on every build.
-- Tracked sources: `data/`, `templates/`, `src/`, `assets/fonts/`, and
-  `thesis.pdf` (a static source asset linked from the CV).
+  CV PDFs, copied Font Awesome fonts, and `thesis.pdf`. The CV PDFs are **not**
+  checked in — they are produced from the HTML on every build.
+- Tracked sources: `data/`, `templates/`, `src/`, `package-lock.json`, and
+  `thesis.pdf` (a static source asset linked from the CV). Font Awesome is a
+  pinned npm dependency and its webfont files are copied into `dist/` during the
+  build.

@@ -14,13 +14,7 @@
           {% if contact_links %}
           {% for link in contact_links %}
           <li class="{{ link.id }}">
-            {% if link.icon == "gitlab" %}
-            <svg class="contact-svg contact-svg--gitlab" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 21 3 14.4 1.6 8.6 6.1 14l2-11 3.9 11 3.9-11 2 11 4.5-5.4-1.4 5.8L12 21Z"></path>
-            </svg>
-            {% else %}
             <i class="fa fa-{{ link.icon }}" aria-hidden="true"></i>
-            {% endif %}
             <a href="{{ link.url }}">{{ link.label }}</a>
           </li>
           {% endfor %}

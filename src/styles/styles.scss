@@ -37,9 +37,9 @@ html[data-theme="clean"] {
 @font-face {
   font-family: "FontAwesome";
   src:
-    url("fonts/fontawesome-webfont.woff2") format("woff2"),
-    url("fonts/fontawesome-webfont.woff") format("woff"),
-    url("fonts/fontawesome-webfont.ttf") format("truetype");
+    url("fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"),
+    url("fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"),
+    url("fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -196,25 +196,9 @@ $icons: (
     justify-content: flex-end;
   }
 
-  .fa,
-  .contact-svg {
-    flex: 0 0 1em;
-  }
-
   .fa {
+    flex: 0 0 1em;
     color: var(--unobtrusive-color);
-  }
-
-  .contact-svg {
-    display: inline-block;
-    width: 1em;
-    max-width: 1em;
-    height: 1em;
-    max-height: 1em;
-    color: var(--unobtrusive-color);
-    fill: currentColor;
-    overflow: hidden;
-    transform: translateY(0.15em);
   }
 }
 
