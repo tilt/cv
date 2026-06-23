@@ -8,15 +8,18 @@ fonts_url: "https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,400
 
 abstract: >-
   <em>Data Scientist / ML Engineer</em> und <em>Softwareentwickler</em> mit über
-  15 Jahren Erfahrung in Softwareentwicklung und über 10 Jahren Erfahrung in
-  Machine Learning; verbindet mathematische Modellierung mit produktionsnaher
-  Softwareumsetzung.
+  15 Jahren Erfahrung in Softwareentwicklung, über 10 Jahren Erfahrung in
+  Machine Learning und mehr als 15 abgeschlossenen Kundenprojekten. Mathematiker
+  mit Diplom der Universität Münster und breiter professioneller Erfahrung in
+  Softwareentwicklung, ML Engineering, Deep Learning, Data Engineering und
+  produktiven Systemen.
 
 brief_profile: >-
   <em>Data Scientist / ML Engineer</em> und <em>Softwareentwickler</em> mit über
-  15 Jahren Erfahrung in Softwareentwicklung und über 10 Jahren Erfahrung in
-  Machine Learning, mit Schwerpunkt auf produktiven ML-Systemen, Datenpipelines
-  sowie Computer-Vision-, NLP- und Empfehlungslösungen.
+  15 Jahren Erfahrung in Softwareentwicklung, über 10 Jahren Erfahrung in
+  Machine Learning und mehr als 15 abgeschlossenen Projekten. Mathematiker mit
+  Diplom der Universität Münster und breiter Erfahrung in Softwareentwicklung,
+  ML Engineering, Deep Learning, Data Engineering und produktiven Systemen.
 
 contact_links:
   - id: email
@@ -64,7 +67,7 @@ sections:
   references: Referenzen
 
 icons:
-  profile: comments
+  profile: user
   education: book
   experience: clock-o
   skills: code

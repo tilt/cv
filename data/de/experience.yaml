@@ -6,21 +6,21 @@ experience:
     title: Data Scientist
     description: |
       <h4>Projekte</h4>
-      <p>Als freiberuflicher Data Scientist habe ich abgeschlossene Kundenprojekte umgesetzt, die sowohl angewandtes Machine Learning / Deep Learning als auch belastbares Data Engineering abdeckten: Datenmodellierung, Data-Warehouse-Architektur und zuverlässige Datenflüsse. Die Arbeit reichte von fokussierten Research Spikes und Machbarkeitsstudien bis zu produktiver Software, darunter ML-Microservices, Docker-basierte Integration in Produktionssysteme, cloudbasierte Datenpipelines und Systeme mit Managed Compute und Storage auf AWS und GCloud. Je nach Projekt arbeitete ich in bestehenden Teams, leitete kleine Projektteams oder führte Lösungen eigenständig von der Konzeption bis zur Implementierung. Der gemeinsame Kern war, unsichere ML- und Datenprobleme in funktionierende Systeme, belastbare Analysen oder entscheidungsreife Prototypen mit praktischem Nutzen für Kunden zu überführen.</p>
+      <p>Als freiberuflicher <em>Data Scientist</em> habe ich abgeschlossene Kundenprojekte umgesetzt, die sowohl angewandtes <em>Machine Learning / Deep Learning</em> als auch belastbares <em>Data Engineering</em> abdeckten: Datenmodellierung, Data-Warehouse-Architektur und zuverlässige Datenflüsse. Die Arbeit reichte von fokussierten Research Spikes und Machbarkeitsstudien bis zu <em>produktiver Software</em>, darunter <em>ML-Microservices</em>, Docker-basierte Integration in Produktionssysteme, <em>cloudbasierte Datenpipelines</em> und Systeme mit Managed Compute und Storage auf <em>AWS</em> und <em>GCloud</em>. Je nach Projekt arbeitete ich in bestehenden Teams, <em>leitete kleine Projektteams</em> oder führte Lösungen eigenständig von der Konzeption bis zur Implementierung. Der gemeinsame Kern war, unsichere ML- und Datenprobleme in funktionierende Systeme, belastbare Analysen oder entscheidungsreife Prototypen mit praktischem Nutzen für Kunden zu überführen.</p>
       <p>Projekte, an denen ich gearbeitet habe:</p>
       <ul>
-        <li>Swipe-basierte Empfehlungs-App mit inhaltsbasiertem Image Retrieval und einem Bandit-Algorithmus</li>
-        <li>Durchführung von Workshops und Vermittlung von Deep-Learning-Konzepten für Computer Vision</li>
+        <li>Swipe-basierte <em>Empfehlungs-App</em> mit inhaltsbasiertem Image Retrieval und einem Bandit-Algorithmus</li>
+        <li>Durchführung von Workshops und Vermittlung von <em>Deep-Learning-Konzepten</em> für <em>Computer Vision</em></li>
         <li>Textbasierte Kategorisierung von Marketingtexten</li>
-        <li>Hybride semantische Bildsegmentierung und Poseerkennung in Straßenszenen</li>
-        <li>Implementierung eines Literaturverwaltungssystems mit ELK-Stack-Integration</li>
-        <li>NLP- und empfehlungsbasiertes Matchmaking</li>
-        <li>Evaluation von Deep-Learning-Modellen für autonomes Fahren</li>
-        <li>Zeitreihenprognosen für Bedarfsvorhersagen in der Logistik</li>
-        <li>Design und Implementierung von Empfehlungs-Microservices für Nachrichtenportale</li>
-        <li>Datenpipelines und Data-Warehouse-Design &amp; -Implementierung auf AWS und GCloud mit dbt und Airflow</li>
-        <li>Text-Extraktion und Entitätszuordnung für historische Museum Labels zur Artenkategorisierung</li>
-        <li>Gestenerkennung in Videos mit Video-Transformer-Modellen</li>
+        <li>Hybride <em>semantische Bildsegmentierung</em> und <em>Poseerkennung</em> in Straßenszenen</li>
+        <li>Implementierung eines Literaturverwaltungssystems mit <em>ELK-Stack-Integration</em></li>
+        <li><em>NLP</em>- und empfehlungsbasiertes Matchmaking</li>
+        <li>Evaluation von <em>Deep-Learning-Modellen</em> für autonomes Fahren</li>
+        <li><em>Zeitreihenprognosen</em> für Bedarfsvorhersagen in der Logistik</li>
+        <li>Design und Implementierung von <em>Empfehlungs-Microservices</em> für Nachrichtenportale</li>
+        <li><em>Datenpipelines</em> und <em>Data-Warehouse</em>-Design &amp; -Implementierung auf <em>AWS</em> und <em>GCloud</em> mit <em>dbt</em> und <em>Airflow</em></li>
+        <li><em>Text-Extraktion</em> und Entitätszuordnung für historische Museum Labels zur Artenkategorisierung</li>
+        <li><em>Gestenerkennung</em> in Videos mit Video-Transformer-Modellen</li>
       </ul>
     brief_summary: Freiberuflicher Data Scientist für abgeschlossene ML- und Data-Engineering-Projekte, von Research Spikes bis zu cloudbasierter Produktionssoftware.
     brief_points:
@@ -35,12 +35,12 @@ experience:
     company_details: KI-Software für Radiologen
     title: Senior Data Scientist
     description: |
-      <p>Bei mediaire war ich verantwortlich für das Benchmarking und die Anpassung von Segmentierungs- und Klassifikationsmodellen für MRT-Bilder sowie deren Integration in die Software.</p>
+      <p>Bei mediaire war ich verantwortlich für das <em>Benchmarking</em> und die Anpassung von <em>Segmentierungs- und Klassifikationsmodellen</em> für <em>MRT-Bilder</em> sowie deren Integration in die Software.</p>
       <h4>Aufgaben &amp; Erfolge</h4>
       <ul>
         <li>Entwicklung von Prototypen zur Segmentierung und Klassifikation von MRT-Bildern</li>
-        <li>Evaluation und Benchmarking von State-of-the-Art-Lösungen für medizinische Bildanalyse</li>
-        <li>Entwicklung und Verbesserung von Deep-Learning-Modellen</li>
+        <li>Evaluation und Benchmarking von State-of-the-Art-Lösungen für <em>medizinische Bildanalyse</em></li>
+        <li>Entwicklung und Verbesserung von <em>Deep-Learning-Modellen</em></li>
       </ul>
     brief_summary: Benchmarking, Anpassung und Integration von Deep-Learning-Modellen für MRT-Segmentierung und -Klassifikation.
     brief_points:
@@ -53,11 +53,11 @@ experience:
     company_details: Echtzeit-Videoanalyse
     title: A.I. Engineer / Senior A.I. Engineer
     description: |
-      <p>Bei Twenty Billion Neurons arbeitete ich als Forschungs- und Entwicklungsingenieur an künstlichen neuronalen Netzen zur Aktivitätserkennung in Videos. Ich war an der Entwicklung von Lösungen zur räumlichen und zeitlichen Aktivitätserkennung mit tiefen neuronalen Netzen beteiligt und setzte die Technologie in verschiedenen Kundenprojekten ein.</p>
+      <p>Bei Twenty Billion Neurons arbeitete ich als <em>Forschungs- und Entwicklungsingenieur</em> an <em>künstlichen neuronalen Netzen</em> zur Aktivitätserkennung in Videos. Ich war an der Entwicklung von Lösungen zur <em>räumlichen und zeitlichen Aktivitätserkennung</em> mit tiefen neuronalen Netzen beteiligt und setzte die Technologie in verschiedenen <em>Kundenprojekten</em> ein.</p>
       <h4>Aufgaben &amp; Erfolge</h4>
       <ul>
-        <li>Entwicklung von Lösungen zur räumlichen Erkennung in Echtzeit-Videos</li>
-        <li>Entwicklung von Lösungen für präzise zeitliche Vorhersagen und Triggerpunkt-Erkennung in Videos</li>
+        <li>Entwicklung von Lösungen zur <em>räumlichen Erkennung</em> in Echtzeit-Videos</li>
+        <li>Entwicklung von Lösungen für präzise <em>zeitliche Vorhersagen</em> und Triggerpunkt-Erkennung in Videos</li>
         <li>Umsetzung von Kundenprojekten</li>
         <li>Mentoring-Aufgaben</li>
       </ul>
@@ -72,21 +72,21 @@ experience:
     company_details: Cloud-Service-Provider und Full-Service-Provider für Datenlösungen
     title: Data Scientist
     description: |
-      <p>Bei der unbelievable Machine Company arbeitete ich an verschiedenen Data-Science-Projekten. Dazu gehörten Industrie-, E-Commerce- und Medienprojekte. Unter anderem arbeitete ich an</p>
+      <p>Bei der unbelievable Machine Company arbeitete ich an verschiedenen <em>Data-Science-Projekten</em>. Dazu gehörten Industrie-, E-Commerce- und Medienprojekte. Unter anderem arbeitete ich an</p>
       <ul>
-        <li>Computer Vision: Bilderkennung mit neuronalen Netzen</li>
-        <li>Empfehlungssysteme: Kollaboratives Filtern, inhaltsbasierte Empfehlungen, statistische und Bandit-Ansätze</li>
-        <li>Predictive Maintenance: Vorhersage von Fehlfunktionen bei Fertigungskomponenten und Fehlerklassifikation</li>
-        <li>Performance-Vorhersage: Prognose der Verteilung von Nutzerinteraktionen über verschiedene Kanäle</li>
+        <li><em>Computer Vision</em>: Bilderkennung mit neuronalen Netzen</li>
+        <li><em>Empfehlungssysteme</em>: Kollaboratives Filtern, inhaltsbasierte Empfehlungen, statistische und Bandit-Ansätze</li>
+        <li><em>Predictive Maintenance</em>: Vorhersage von Fehlfunktionen bei Fertigungskomponenten und Fehlerklassifikation</li>
+        <li><em>Performance-Vorhersage</em>: Prognose der Verteilung von Nutzerinteraktionen über verschiedene Kanäle</li>
         <li>Vorhersage des Energieverbrauchs</li>
         <li>Verschiedene Clustering- / Segmentierungsaufgaben</li>
       </ul>
       <h4>Aufgaben &amp; Erfolge</h4>
       <ul>
-        <li>Führende Rolle in den meisten Projekten</li>
-        <li>Kundenkommunikation</li>
+        <li><em>Führende Rolle</em> in den meisten Projekten</li>
+        <li><em>Kundenkommunikation</em></li>
         <li>Beitrag zur Verbesserung interner Prozesse</li>
-        <li>Einführung von Best Practices für Programmierung</li>
+        <li>Einführung von <em>Best Practices für Programmierung</em></li>
         <li>Referent auf mehreren Konferenzen, darunter der bitkom Big Data Summit</li>
       </ul>
     brief_summary: Leitung angewandter Data-Science-Projekte in Computer Vision, Empfehlungssystemen, Predictive Maintenance und Forecasting.
@@ -100,12 +100,12 @@ experience:
     company_details: Webentwicklungs-Beratung
     title: Freiberuflicher Softwareentwickler
     description: |
-      <p>Nach der Crowdfunding-Kampagne von Krautreporter half ich bei der Entwicklung der Plattform als leitender Backend- und Javascript-Ingenieur. Ich war verantwortlich für die technischen Konzepte der Plattform sowie die Implementierung des Rails-Backends, der AngularJS-Komponenten und deren Zusammenspiel. Die Plattform hatte eine enge Deadline und wurde pünktlich gelauncht.</p>
+      <p>Nach der Crowdfunding-Kampagne von Krautreporter half ich bei der Entwicklung der Plattform als <em>leitender Backend- und JavaScript-Ingenieur</em>. Ich war verantwortlich für die <em>technischen Konzepte</em> der Plattform sowie die Implementierung des <em>Rails-Backends</em>, der <em>AngularJS-Komponenten</em> und deren Zusammenspiel. Die Plattform hatte eine enge Deadline und wurde pünktlich gelauncht.</p>
       <h4>Aufgaben &amp; Erfolge</h4>
       <ul>
-        <li>Backend- und clientseitige Entwicklung</li>
-        <li>Technologieauswahl (Web-Content-Editor zum Veröffentlichen von Artikeln)</li>
-        <li>Technische Konzepte</li>
+        <li><em>Backend- und clientseitige Entwicklung</em></li>
+        <li><em>Technologieauswahl</em> (Web-Content-Editor zum Veröffentlichen von Artikeln)</li>
+        <li><em>Technische Konzepte</em></li>
       </ul>
     variants: [full]
 
@@ -115,13 +115,13 @@ experience:
     company_details: Softwareentwicklungs-Beratung
     title: Softwareentwickler
     description: |
-      <p>Finnlabs ist ein Berliner Unternehmen, das sich auf sein Produkt konzentriert, eine Open-Source-Projektmanagement-Software namens OpenProject. Ich kam als Senior-Softwareentwickler zum Unternehmen.</p>
+      <p>Finnlabs ist ein Berliner Unternehmen, das sich auf sein Produkt konzentriert, eine <em>Open-Source-Projektmanagement-Software</em> namens OpenProject. Ich kam als <em>Senior-Softwareentwickler</em> zum Unternehmen.</p>
       <h4>Aufgaben &amp; Erfolge</h4>
       <ul>
-        <li>Backend-Entwicklung (Ruby on Rails)</li>
+        <li><em>Backend-Entwicklung</em> (Ruby on Rails)</li>
         <li>Arbeit in einem internationalen Team</li>
-        <li>Requirements Engineering und Sprint-Planung</li>
-        <li>Teamkoordination und Leitung der Javascript- / AngularJS-Entwicklung</li>
+        <li><em>Requirements Engineering</em> und Sprint-Planung</li>
+        <li><em>Teamkoordination</em> und Leitung der JavaScript- / AngularJS-Entwicklung</li>
       </ul>
     variants: [full]
 
@@ -131,13 +131,13 @@ experience:
     company_details: Ruby-on-Rails-Beratung
     title: Softwareentwickler
     description: |
-      <p>Als Softwareingenieur arbeitete ich an verschiedenen Projekten, zum Beispiel <em>so-schmeckts.de</em> oder <em>compeon.de</em>. Die eingesetzten Technologien umfassten <em>Rails</em> als serverseitige Technologie sowie <em>JavaScript</em> und verwandte Frameworks wie <em>AngularJS</em> auf der Clientseite. Zweitag praktiziert verhaltensgetriebene Entwicklung mit <em>Rspec</em>, <em>Capybara</em> und <em>Jasmine</em>. Datenvisualisierungen wurden unter anderem mit <em>D3.js</em> erstellt.</p>
+      <p>Als <em>Softwareingenieur</em> arbeitete ich an verschiedenen Projekten, zum Beispiel <em>so-schmeckts.de</em> oder <em>compeon.de</em>. Die eingesetzten Technologien umfassten <em>Rails</em> als serverseitige Technologie sowie <em>JavaScript</em> und verwandte Frameworks wie <em>AngularJS</em> auf der Clientseite. Zweitag praktiziert <em>verhaltensgetriebene Entwicklung</em> mit <em>Rspec</em>, <em>Capybara</em> und <em>Jasmine</em>. Datenvisualisierungen wurden unter anderem mit <em>D3.js</em> erstellt.</p>
       <h4>Aufgaben &amp; Erfolge</h4>
       <ul>
-        <li>Backend- und clientseitige Entwicklung</li>
-        <li>Technische Konzepte</li>
-        <li>Kundenkommunikation</li>
-        <li>Projektkoordination</li>
+        <li><em>Backend- und clientseitige Entwicklung</em></li>
+        <li><em>Technische Konzepte</em></li>
+        <li><em>Kundenkommunikation</em></li>
+        <li><em>Projektkoordination</em></li>
       </ul>
     variants: [full]
 
@@ -147,7 +147,7 @@ experience:
     company_details: der Universität Münster
     title: Wissenschaftlicher Mitarbeiter
     description: |
-      <p>Als wissenschaftlicher Mitarbeiter am Institut für Wahrscheinlichkeitstheorie der Universität Münster betreute ich Seminare in Wahrscheinlichkeitstheorie und statistischer Modellierung. Außerdem leitete ich das Praktikum für angewandte Statistik mit R. Ich forschte im Bereich der Erneuerungstheorie und untersuchte strukturelle Vererbungseigenschaften von Markov-Erneuerungsprozessen. Parallel arbeitete ich als Softwareentwickler bei Zweitag GmbH (siehe oben).</p>
+      <p>Als <em>wissenschaftlicher Mitarbeiter</em> am Institut für Wahrscheinlichkeitstheorie der Universität Münster betreute ich Seminare in <em>Wahrscheinlichkeitstheorie</em> und <em>statistischer Modellierung</em>. Außerdem leitete ich das Praktikum für <em>angewandte Statistik mit R</em>. Ich forschte im Bereich der Erneuerungstheorie und untersuchte strukturelle Vererbungseigenschaften von Markov-Erneuerungsprozessen. Parallel arbeitete ich als <em>Softwareentwickler</em> bei Zweitag GmbH (siehe oben).</p>
     variants: [full]
 
   - id: fairix
@@ -156,7 +156,7 @@ experience:
     company_details: Startup
     title: Softwareentwickler, CTO
     description: |
-      <p>Fairix ist ein Startup, an dem ich als Softwareingenieur während meines Mathematikstudiums mitwirkte. Fairix bot Produzenten und Händlern eine Plattform, um Produkte mit zusätzlichem ökologischem oder sozialem Wert anzubieten, z.B. Fair-Trade-Produkte. In einem Entwicklerteam zu zweit entwickelten wir eine Marktplatz-Plattform mit Ruby on Rails. Dafür lernte ich Rails von Grund auf und übernahm im weiteren Projektverlauf die Leitung der Entwicklung bis zum Launch. Das Startup ging nach zwei Jahren die Finanzierung aus.</p>
+      <p>Fairix ist ein Startup, an dem ich als <em>Softwareingenieur</em> während meines Mathematikstudiums mitwirkte. Fairix bot Produzenten und Händlern eine Plattform, um Produkte mit zusätzlichem ökologischem oder sozialem Wert anzubieten, z.B. Fair-Trade-Produkte. In einem <em>Entwicklerteam zu zweit</em> entwickelten wir eine <em>Marktplatz-Plattform</em> mit <em>Ruby on Rails</em>. Dafür lernte ich Rails von Grund auf und übernahm im weiteren Projektverlauf die <em>Leitung der Entwicklung</em> bis zum Launch. Das Startup ging nach zwei Jahren die Finanzierung aus.</p>
     variants: [full]
 
   - id: bsi
@@ -165,7 +165,7 @@ experience:
     company_details: (BSI)
     title: Wissenschaftlicher Mitarbeiter (Mustererkennung)
     description: |
-      <p>In meinem Praktikum beim BSI arbeitete ich an Forschungsthemen zur Malware-Klassifikation. Das Praktikum dauerte zwei Monate und zusammen mit meinem Betreuer implementierte ich einen Mustererkennungs- und Clustering-Ansatz zur Identifikation und Unterscheidung von Malware anhand der verwendeten Exploits. Die Software musste extrem performant und von linearer Komplexität sein und wurde in C geschrieben.</p>
+      <p>In meinem Praktikum beim BSI arbeitete ich an Forschungsthemen zur <em>Malware-Klassifikation</em>. Das Praktikum dauerte zwei Monate und zusammen mit meinem Betreuer implementierte ich einen <em>Mustererkennungs</em>- und <em>Clustering</em>-Ansatz zur Identifikation und Unterscheidung von Malware anhand der verwendeten Exploits. Die Software musste extrem performant und von linearer Komplexität sein und wurde in <em>C</em> geschrieben.</p>
     variants: [full]
 
   - id: ims-tutor

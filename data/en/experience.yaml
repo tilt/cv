@@ -6,21 +6,21 @@ experience:
     title: Data Scientist
     description: |
       <h4>Projects</h4>
-      <p>As a freelance data scientist, I have delivered completed client projects covering both applied machine learning / deep learning and robust data engineering: data modelling, warehouse architecture and reliable data flows. The work has ranged from focused research spikes and feasibility studies to production software, including ML microservices, Docker-based integration into production systems, cloud-based data pipelines and systems using managed compute and storage on AWS and GCloud. Depending on the project, I worked as part of existing teams, led small project teams or carried solutions from concept to implementation independently. The common thread has been turning uncertain ML and data problems into working systems, validated analyses or decision-ready prototypes with practical value for customers.</p>
+      <p>As a freelance <em>data scientist</em>, I have delivered completed client projects covering both applied <em>machine learning / deep learning</em> and robust <em>data engineering</em>: data modelling, warehouse architecture and reliable data flows. The work has ranged from focused research spikes and feasibility studies to <em>production software</em>, including <em>ML microservices</em>, Docker-based integration into production systems, <em>cloud-based data pipelines</em> and systems using managed compute and storage on <em>AWS</em> and <em>GCloud</em>. Depending on the project, I worked as part of existing teams, <em>led small project teams</em> or carried solutions from concept to implementation independently. The common thread has been turning uncertain ML and data problems into working systems, validated analyses or decision-ready prototypes with practical value for customers.</p>
       <p>Projects I have worked on include:</p>
       <ul>
-        <li>Swipe-based recommendation app using content-based image retrieval and a bandit algorithm</li>
-        <li>Conducting workshops and teaching concepts of deep learning for computer vision</li>
+        <li>Swipe-based <em>recommendation app</em> using content-based image retrieval and a bandit algorithm</li>
+        <li>Conducting workshops and teaching concepts of <em>deep learning</em> for <em>computer vision</em></li>
         <li>Text-based categorization of marketing texts</li>
-        <li>Hybrid image semantic segmentation and pose detection in street scenes</li>
-        <li>Implementation of a literature management system with ELK-stack integration</li>
-        <li>NLP- and recommendation-based matchmaking</li>
-        <li>Evaluation of deep learning models for autonomous driving</li>
-        <li>Time series forecasts for demand prediction in logistics</li>
-        <li>Design and implementation of recommendation microservices for production news sites</li>
-        <li>Data pipelines and data warehouse design &amp; implementation on AWS and GCloud with dbt and Airflow</li>
-        <li>Text extraction and entity matching from historical museum labels for species categorization</li>
-        <li>Gesture recognition in videos with video transformer models</li>
+        <li>Hybrid image <em>semantic segmentation</em> and <em>pose detection</em> in street scenes</li>
+        <li>Implementation of a literature management system with <em>ELK-stack integration</em></li>
+        <li><em>NLP</em>- and recommendation-based matchmaking</li>
+        <li>Evaluation of <em>deep learning models</em> for autonomous driving</li>
+        <li><em>Time series forecasts</em> for demand prediction in logistics</li>
+        <li>Design and implementation of <em>recommendation microservices</em> for production news sites</li>
+        <li><em>Data pipelines</em> and <em>data warehouse</em> design &amp; implementation on <em>AWS</em> and <em>GCloud</em> with <em>dbt</em> and <em>Airflow</em></li>
+        <li><em>Text extraction</em> and entity matching from historical museum labels for species categorization</li>
+        <li><em>Gesture recognition</em> in videos with video transformer models</li>
       </ul>
     brief_summary: Freelance data scientist delivering completed ML and data engineering projects, from research spikes to cloud-based production software.
     brief_points:
@@ -35,12 +35,12 @@ experience:
     company_details: AI-software for radiologists
     title: Senior Data Scientist
     description: |
-      <p>At mediaire I was responsible for benchmarking and adapting segmentation and classification models for MRI images as well as for integrating them into the software.</p>
+      <p>At mediaire I was responsible for <em>benchmarking</em> and adapting <em>segmentation and classification models</em> for <em>MRI images</em> as well as for integrating them into the software.</p>
       <h4>Responsibilities &amp; Achievements</h4>
       <ul>
         <li>Developing prototypes for segmenting and classifying MRI-images</li>
-        <li>Evaluating and benchmarking state-of-the-art solutions for medical image analysis</li>
-        <li>Development and improvement of Deep Learning-models</li>
+        <li>Evaluating and benchmarking state-of-the-art solutions for <em>medical image analysis</em></li>
+        <li>Development and improvement of <em>Deep Learning models</em></li>
       </ul>
     brief_summary: Benchmarked, adapted and integrated deep learning models for MRI segmentation and classification.
     brief_points:
@@ -53,11 +53,11 @@ experience:
     company_details: Realtime video understanding
     title: A.I. Engineer / Senior A.I. Engineer
     description: |
-      <p>At Twenty Billion Neurons I worked as a research and development engineer, creating artificial neural networks which detect activities in videos. I participated in developing solutions for spatial and temporal activity detection using deep neural networks and applied the technology in a series of customer projects.</p>
+      <p>At Twenty Billion Neurons I worked as a <em>research and development engineer</em>, creating <em>artificial neural networks</em> which detect activities in videos. I participated in developing solutions for <em>spatial and temporal activity detection</em> using deep neural networks and applied the technology in a series of <em>customer projects</em>.</p>
       <h4>Responsibilities &amp; Achievements</h4>
       <ul>
-        <li>Developing solutions for spatial detection performed in real-time on videos</li>
-        <li>Developing solutions for accurate temporal predictions and prediction of trigger points in videos</li>
+        <li>Developing solutions for <em>spatial detection</em> performed in real-time on videos</li>
+        <li>Developing solutions for accurate <em>temporal predictions</em> and prediction of trigger points in videos</li>
         <li>Realization of customer projects</li>
         <li>Mentoring tasks</li>
       </ul>
@@ -72,21 +72,21 @@ experience:
     company_details: Cloud Service Provider and Full Service Provider for Data Solutions
     title: Data Scientist
     description: |
-      <p>At the unbelievable Machine Company I worked on a variety of Data Science projects. These include industry projects as well as e-commerce and media-related projects. Among others I worked on</p>
+      <p>At the unbelievable Machine Company I worked on a variety of <em>Data Science projects</em>. These include industry projects as well as e-commerce and media-related projects. Among others I worked on</p>
       <ul>
-        <li>Computer Vision: Image recognition using neural networks</li>
-        <li>Recommendation: Collaborative filtering, content-based recommendations, statistical and bandit approaches</li>
-        <li>Predictive maintenance: Predicting malfunction of manufacturing components and classifying errors</li>
-        <li>Performance prediction: Predicting distribution of user participation among different channels</li>
+        <li><em>Computer Vision</em>: image recognition using neural networks</li>
+        <li><em>Recommendation</em>: collaborative filtering, content-based recommendations, statistical and bandit approaches</li>
+        <li><em>Predictive maintenance</em>: predicting malfunction of manufacturing components and classifying errors</li>
+        <li><em>Performance prediction</em>: predicting distribution of user participation among different channels</li>
         <li>Prediction of energy consumption</li>
         <li>Various clustering / segmentation tasks</li>
       </ul>
       <h4>Responsibilities &amp; Achievements</h4>
       <ul>
-        <li>Leading role in most projects</li>
-        <li>Customer communication</li>
+        <li><em>Leading role</em> in most projects</li>
+        <li><em>Customer communication</em></li>
         <li>Contributing to the improvement of internal processes</li>
-        <li>Introducing best practices for coding</li>
+        <li>Introducing <em>best practices for coding</em></li>
         <li>Speaker at several conferences including the bitkom Big Data Summit</li>
       </ul>
     brief_summary: Led applied data science projects across computer vision, recommendations, predictive maintenance and forecasting.
@@ -100,12 +100,12 @@ experience:
     company_details: Web Development Consultancy
     title: Freelance Software Developer
     description: |
-      <p>After Krautreporter was crowdfunded I helped developing the platform as leading backend and Javascript engineer. I was responsible for the technical concepts of the platform as well as for implementing the Rails backend, the AngularJS components and making the components work together. The platform had a tight deadline and launched on time.</p>
+      <p>After Krautreporter was crowdfunded I helped developing the platform as <em>leading backend and JavaScript engineer</em>. I was responsible for the <em>technical concepts</em> of the platform as well as for implementing the <em>Rails backend</em>, the <em>AngularJS components</em> and making the components work together. The platform had a tight deadline and launched on time.</p>
       <h4>Responsibilities &amp; Achievements</h4>
       <ul>
-        <li>Backend and client-side development</li>
-        <li>Choices of technology (web content editor for publishing articles)</li>
-        <li>Technical concepts</li>
+        <li><em>Backend and client-side development</em></li>
+        <li><em>Choices of technology</em> (web content editor for publishing articles)</li>
+        <li><em>Technical concepts</em></li>
       </ul>
     variants: [full]
 
@@ -115,13 +115,13 @@ experience:
     company_details: Software Development Consultancy
     title: Software Developer
     description: |
-      <p>Finnlabs is a Berlin-based company centered around their product, an open source project collaboration software called OpenProject. I joined the company as a senior software developer.</p>
+      <p>Finnlabs is a Berlin-based company centered around their product, an <em>open source project collaboration software</em> called OpenProject. I joined the company as a <em>senior software developer</em>.</p>
       <h4>Responsibilities &amp; Achievements</h4>
       <ul>
-        <li>Backend development (Ruby on Rails)</li>
+        <li><em>Backend development</em> (Ruby on Rails)</li>
         <li>Working in an international team</li>
-        <li>Requirements engineering and sprint planning</li>
-        <li>Team coordination and leading the Javascript / AngularJS development</li>
+        <li><em>Requirements engineering</em> and sprint planning</li>
+        <li><em>Team coordination</em> and leading the JavaScript / AngularJS development</li>
       </ul>
     variants: [full]
 
@@ -131,13 +131,13 @@ experience:
     company_details: Ruby on Rails Consultancy
     title: Software Developer
     description: |
-      <p>As a software engineer I worked on a variety of projects, for example <em>so-schmeckts.de</em> or <em>compeon.de</em>. Technologies we worked with involved <em>Rails</em> as server-side technology as well as <em>JavaScript</em> and related frameworks like <em>AngularJS</em> on the client-side. Zweitag applies behaviour driven development using <em>Rspec</em>, <em>Capybara</em> and <em>Jasmine</em>. Data visualization were done with <em>D3.js</em> among others.</p>
+      <p>As a <em>software engineer</em> I worked on a variety of projects, for example <em>so-schmeckts.de</em> or <em>compeon.de</em>. Technologies we worked with involved <em>Rails</em> as server-side technology as well as <em>JavaScript</em> and related frameworks like <em>AngularJS</em> on the client-side. Zweitag applies <em>behaviour driven development</em> using <em>Rspec</em>, <em>Capybara</em> and <em>Jasmine</em>. Data visualization were done with <em>D3.js</em> among others.</p>
       <h4>Responsibilities &amp; Achievements</h4>
       <ul>
-        <li>Backend and client-side development</li>
-        <li>Technical concepts</li>
-        <li>Customer communication</li>
-        <li>Project coordination</li>
+        <li><em>Backend and client-side development</em></li>
+        <li><em>Technical concepts</em></li>
+        <li><em>Customer communication</em></li>
+        <li><em>Project coordination</em></li>
       </ul>
     variants: [full]
 
@@ -147,7 +147,7 @@ experience:
     company_details: of the University of Münster
     title: Research assistant
     description: |
-      <p>As a research assistant at the institute for probability theory at the University of Münster I was mentor for seminars in probability theory and statistical modelling. Besides I lead the internship for applied statistics with R. I did research in the field of renewal theory exploring structural inheritance properties of Markov renewal processes. Meanwhile I worked as a software developer at Zweitag GmbH (see above).</p>
+      <p>As a <em>research assistant</em> at the institute for probability theory at the University of Münster I was mentor for seminars in <em>probability theory</em> and <em>statistical modelling</em>. Besides I lead the internship for <em>applied statistics with R</em>. I did research in the field of renewal theory exploring structural inheritance properties of Markov renewal processes. Meanwhile I worked as a <em>software developer</em> at Zweitag GmbH (see above).</p>
     variants: [full]
 
   - id: fairix
@@ -156,7 +156,7 @@ experience:
     company_details: Startup
     title: Software developer, CTO
     description: |
-      <p>Fairix is a startup I took part in as a software engineer while I was a student of mathematics. Fairix provided a platform to producers and merchants enabling them to offer products with additional ecological or social value, e.g. fair trade products. In an engineering team of two we developed a marketplace platform with Ruby on Rails. For that purpose I learnt Rails from scratch and I was leading the development in the later course of the project when the platform launched. The startup finally ran out of funds after two years.</p>
+      <p>Fairix is a startup I took part in as a <em>software engineer</em> while I was a student of mathematics. Fairix provided a platform to producers and merchants enabling them to offer products with additional ecological or social value, e.g. fair trade products. In an <em>engineering team of two</em> we developed a <em>marketplace platform</em> with <em>Ruby on Rails</em>. For that purpose I learnt Rails from scratch and I was <em>leading the development</em> in the later course of the project when the platform launched. The startup finally ran out of funds after two years.</p>
     variants: [full]
 
   - id: bsi
@@ -165,7 +165,7 @@ experience:
     company_details: (BSI)
     title: Research engineer (Pattern recognition)
     description: |
-      <p>At my internship at the BSI I worked on research topics about malware classification. The internship lasted two months and together with my mentor I implemented a pattern recognition and a clustering approach to identify and distinguish malware by the kinds of exploits it used. The software had to be extremely performant and of linear complexity and was written in C.</p>
+      <p>At my internship at the BSI I worked on research topics about <em>malware classification</em>. The internship lasted two months and together with my mentor I implemented a <em>pattern recognition</em> and a <em>clustering</em> approach to identify and distinguish malware by the kinds of exploits it used. The software had to be extremely performant and of linear complexity and was written in <em>C</em>.</p>
     variants: [full]
 
   - id: ims-tutor
