@@ -30,10 +30,6 @@ contact_links:
     icon: github
     label: "GitHub: tilt"
     url: https://github.com/tilt
-  - id: gitlab
-    icon: gitlab
-    label: "GitLab: tillt"
-    url: https://gitlab.com/tillt
 
 language_skills:
   - language: Deutsch

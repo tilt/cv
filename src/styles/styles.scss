@@ -196,8 +196,25 @@ $icons: (
     justify-content: flex-end;
   }
 
+  .fa,
+  .contact-svg {
+    flex: 0 0 1em;
+  }
+
   .fa {
     color: var(--unobtrusive-color);
+  }
+
+  .contact-svg {
+    display: inline-block;
+    width: 1em;
+    max-width: 1em;
+    height: 1em;
+    max-height: 1em;
+    color: var(--unobtrusive-color);
+    fill: currentColor;
+    overflow: hidden;
+    transform: translateY(0.15em);
   }
 }
 
