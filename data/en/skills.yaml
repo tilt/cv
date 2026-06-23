@@ -63,6 +63,8 @@ skills:
         name: Computer vision &amp; video understanding
       - id: nlp
         name: Natural language processing
+      - id: llms
+        name: Large language models &amp; agentic systems
       - id: recommendations
         name: Recommender systems &amp; bandit algorithms
       - id: forecasting

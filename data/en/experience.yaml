@@ -20,7 +20,7 @@ experience:
         <li>Design and implementation of <em>recommendation microservices</em> for production news sites</li>
         <li><em>Data pipelines</em> and <em>data warehouse</em> design &amp; implementation on <em>AWS</em> and <em>GCloud</em> with <em>dbt</em> and <em>Airflow</em></li>
         <li><em>Text extraction</em> and entity matching from historical museum labels for species categorization</li>
-        <li><em>Gesture recognition</em> in videos with video transformer models</li>
+        <li>Gesture recognition in videos with <em>video transformer models</em></li>
       </ul>
     brief_summary: Freelance data scientist delivering completed ML and data engineering projects, from research spikes to cloud-based production software.
     brief_points:

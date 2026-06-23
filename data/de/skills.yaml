@@ -63,6 +63,8 @@ skills:
         name: Computer Vision &amp; Videoanalyse
       - id: nlp
         name: Natürliche Sprachverarbeitung
+      - id: llms
+        name: Large Language Models &amp; agentische Systeme
       - id: recommendations
         name: Empfehlungssysteme &amp; Bandit-Algorithmen
       - id: forecasting

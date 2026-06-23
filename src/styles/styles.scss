@@ -436,6 +436,11 @@ $icons: (
     grid-template-columns: minmax(160px, 13rem) minmax(0, 1fr);
     column-gap: 0.8rem;
 
+    dt,
+    dd {
+      min-width: 0;
+    }
+
     dt {
       font-weight: 700;
     }
@@ -444,7 +449,14 @@ $icons: (
       margin: 0;
       color: var(--unobtrusive-color);
       font-weight: 200;
+      overflow-wrap: anywhere;
+      white-space: normal;
     }
+  }
+
+  #skills .brief-skill-line dd {
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
 
   #skills .skill-groups {

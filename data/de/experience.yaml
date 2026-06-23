@@ -20,7 +20,7 @@ experience:
         <li>Design und Implementierung von <em>Empfehlungs-Microservices</em> für Nachrichtenportale</li>
         <li><em>Datenpipelines</em> und <em>Data-Warehouse</em>-Design &amp; -Implementierung auf <em>AWS</em> und <em>GCloud</em> mit <em>dbt</em> und <em>Airflow</em></li>
         <li><em>Text-Extraktion</em> und Entitätszuordnung für historische Museum Labels zur Artenkategorisierung</li>
-        <li><em>Gestenerkennung</em> in Videos mit Video-Transformer-Modellen</li>
+        <li>Gestenerkennung in Videos mit <em>Video-Transformer-Modellen</em></li>
       </ul>
     brief_summary: Freiberuflicher Data Scientist für abgeschlossene ML- und Data-Engineering-Projekte, von Research Spikes bis zu cloudbasierter Produktionssoftware.
     brief_points:
