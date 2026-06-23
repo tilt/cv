@@ -6,7 +6,8 @@
   <body class="variant-full">
 {% include "partials/header.njk" %}
 
-    <section id="abstract">
+    <section id="abstract" class="profile">
+      <h3><span><i class="fa fa-{{ icons.profile | default(icons.skills) }}" aria-hidden="true"></i> {{ sections.profile }}</span></h3>
       <p>{{ abstract | safe }}</p>
     </section>
 

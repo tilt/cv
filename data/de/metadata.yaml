@@ -7,15 +7,16 @@ profession: Data Scientist. ML Engineer. Softwareentwickler.
 fonts_url: "https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,400;0,700;1,400&display=swap"
 
 abstract: >-
-  <em>Data Scientist</em> und erfahrener <em>Softwareentwickler</em> mit Diplom
-  in Mathematik der Universität Münster sowie Erfahrung in <em>maschinellem
-  Lernen</em> und <em>statistischer Modellierung</em>.
+  <em>Data Scientist / ML Engineer</em> und <em>Softwareentwickler</em> mit über
+  15 Jahren Erfahrung in Softwareentwicklung und über 10 Jahren Erfahrung in
+  Machine Learning; verbindet mathematische Modellierung mit produktionsnaher
+  Softwareumsetzung.
 
 brief_profile: >-
-  Senior <em>Data Scientist / ML Engineer</em> und erfahrener
-  <em>Softwareentwickler</em> mit Schwerpunkt auf produktiven ML-Systemen,
-  cloudbasierten Datenpipelines sowie Computer-Vision-, NLP- und
-  Empfehlungslösungen.
+  <em>Data Scientist / ML Engineer</em> und <em>Softwareentwickler</em> mit über
+  15 Jahren Erfahrung in Softwareentwicklung und über 10 Jahren Erfahrung in
+  Machine Learning, mit Schwerpunkt auf produktiven ML-Systemen, Datenpipelines
+  sowie Computer-Vision-, NLP- und Empfehlungslösungen.
 
 contact_links:
   - id: email
@@ -63,6 +64,7 @@ sections:
   references: Referenzen
 
 icons:
+  profile: comments
   education: book
   experience: clock-o
   skills: code

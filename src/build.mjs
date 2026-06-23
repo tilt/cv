@@ -92,6 +92,7 @@ function dataForVariant(source, lang, variant) {
   data.variant = variant;
   data.pdf_file = pdfFileForVariant(data, variant);
   data.lang_switcher.url = basePath + VARIANT_HOME[variant][otherLang];
+  data.show_profession = !(lang === 'de' && variant === 'brief');
   data.variant_switcher = {
     label: variant === 'brief' ? data.variant_switcher.full_label : data.variant_switcher.brief_label,
     url: basePath + VARIANT_HOME[variant === 'brief' ? 'full' : 'brief'][lang],

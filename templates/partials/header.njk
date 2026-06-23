@@ -7,7 +7,9 @@
     <section class="intro">
       <header id="header">
         <h1 id="header__name"><span>{{ name }}</span></h1>
+        {% if show_profession !== false %}
         <h2 id="header__profession">{{ profession }}</h2>
+        {% endif %}
       </header>
       <address id="contact">
         <ul class="contact-list">

@@ -7,14 +7,16 @@ profession: Data Scientist. ML Engineer. Software Engineer.
 fonts_url: "https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,400;0,700;1,400&display=swap"
 
 abstract: >-
-  <em>Data Scientist</em> and experienced <em>software engineer</em> with a math
-  diploma from University of Münster and a background in <em>machine learning</em>
-  and <em>statistical modelling</em>.
+  <em>Data Scientist / ML Engineer</em> and <em>software engineer</em> with
+  15+ years of software engineering experience and 10+ years of machine learning
+  experience, combining mathematical modelling with production-grade software
+  delivery.
 
 brief_profile: >-
-  Senior <em>Data Scientist / ML Engineer</em> and experienced
-  <em>software engineer</em> building production ML systems, cloud data
-  pipelines and applied computer-vision, NLP and recommender solutions.
+  <em>Data Scientist / ML Engineer</em> and <em>software engineer</em> with
+  15+ years in software engineering and 10+ years in machine learning, building
+  production ML systems, cloud data pipelines and applied computer-vision, NLP
+  and recommender solutions.
 
 contact_links:
   - id: email
@@ -56,6 +58,7 @@ sections:
   references: References
 
 icons:
+  profile: comments
   education: book
   experience: clock-o
   skills: code
