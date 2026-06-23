@@ -9,7 +9,7 @@
     "pdf": "node src/generate-pdf.mjs",
     "build:prod": "npm run build && npm run pdf",
     "watch:css": "sass src/styles/styles.scss dist/assets/styles.css --style=expanded --no-source-map --watch",
-    "validate": "html-validate dist/index.html dist/de/index.html",
+    "validate": "html-validate dist/index.html dist/de/index.html dist/brief/index.html dist/de/brief/index.html",
     "validate:data": "node src/validate-data.mjs"
   },
   "devDependencies": {

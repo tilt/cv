@@ -4,7 +4,7 @@ import { existsSync, openSync, readSync, closeSync } from 'fs';
 import { resolve, dirname, normalize, extname, join, relative, isAbsolute } from 'path';
 import { fileURLToPath } from 'url';
 import { chromium } from 'playwright';
-import { LANGUAGES, LANG_HOME, loadAllLanguages, validateData } from './data.mjs';
+import { LANGUAGES, VARIANTS, VARIANT_HOME, loadAllLanguages, pdfFileForVariant, validateData } from './data.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
@@ -33,17 +33,20 @@ const MIME = {
 
 // Section structure that every rendered page must contain. Verified in the
 // browser before a PDF is written so a broken template fails loudly.
-const REQUIRED_SELECTORS = [
+const BASE_REQUIRED_SELECTORS = [
   '#header__name',
   '#contact',
   '#abstract',
   '#education',
   '#experience',
   '#skills',
-  '#interests',
-  '#references',
   '#footer',
 ];
+
+const REQUIRED_SELECTORS = {
+  full: [...BASE_REQUIRED_SELECTORS, '#interests', '#references'],
+  brief: BASE_REQUIRED_SELECTORS,
+};
 
 function log(msg) {
   console.log(msg);
@@ -107,9 +110,25 @@ function isPdf(path) {
   }
 }
 
+async function countPdfPages(path) {
+  const body = await readFile(path, 'latin1');
+  return (body.match(/\/Type\s*\/Page\b/g) || []).length;
+}
+
 async function generate() {
-  if (!existsSync(dist) || !existsSync(resolve(dist, 'index.html'))) {
-    throw new Error('dist/ is missing or empty — run "npm run build" before generating PDFs.');
+  const missingPages = [];
+  for (const variant of VARIANTS) {
+    for (const lang of LANGUAGES) {
+      const rel = VARIANT_HOME[variant][lang].replace(/^\/+|\/+$/g, '');
+      const pagePath = rel ? resolve(dist, rel, 'index.html') : resolve(dist, 'index.html');
+      if (!existsSync(pagePath)) {
+        missingPages.push(`dist/${rel ? `${rel}/` : ''}index.html`);
+      }
+    }
+  }
+  if (!existsSync(dist) || missingPages.length > 0) {
+    const details = missingPages.length > 0 ? ` Missing: ${missingPages.join(', ')}.` : '';
+    throw new Error(`dist/ is missing required full/brief pages — run "npm run build" before generating PDFs.${details}`);
   }
 
   // Validate data so the PDF filenames/paths we rely on are trustworthy.
@@ -140,87 +159,95 @@ async function generate() {
 }
 
 async function renderAll(browser, byLang, origin) {
-  for (const lang of LANGUAGES) {
-    const data = byLang[lang];
-    const pdfName = data.pdf_file;
-    const pagePath = `${basePath}${LANG_HOME[lang]}`;
-    const pageUrl = `${origin}${pagePath}`;
-    const outPath = resolve(dist, pdfName);
+  for (const variant of VARIANTS) {
+    for (const lang of LANGUAGES) {
+      const data = byLang[lang];
+      const pdfName = pdfFileForVariant(data, variant);
+      const pagePath = `${basePath}${VARIANT_HOME[variant][lang]}`;
+      const pageUrl = `${origin}${pagePath}`;
+      const outPath = resolve(dist, pdfName);
 
-    log(`\n[${lang}] ${pageUrl} → dist/${pdfName}`);
+      log(`\n[${lang}/${variant}] ${pageUrl} → dist/${pdfName}`);
 
-    const page = await browser.newPage();
-    // Collect same-origin asset failures so missing CSS/fonts/PDFs fail hard.
-    const failures = [];
-    page.on('response', (response) => {
-      const url = response.url();
-      if (url.startsWith(origin) && response.status() >= 400) {
-        failures.push(`${response.status()} ${url}`);
-      }
-    });
-    page.on('requestfailed', (request) => {
-      const url = request.url();
-      if (url.startsWith(origin)) failures.push(`failed ${url} (${request.failure()?.errorText})`);
-    });
-
-    try {
-      const response = await page.goto(pageUrl, { waitUntil: 'load', timeout: 30000 });
-      if (!response || !response.ok()) {
-        throw new Error(`page did not load (status ${response ? response.status() : 'none'})`);
-      }
-
-      // Render under print media so the verification reflects the PDF output.
-      await page.emulateMedia({ media: 'print' });
-
-      // Deterministic wait: no arbitrary sleeps.
-      await page.evaluate(() => document.fonts.ready);
-
-      const probe = await page.evaluate((selectors) => {
-        const missing = selectors.filter((s) => !document.querySelector(s));
-        const entryCount = document.querySelectorAll('.entry').length;
-        const skillCount = document.querySelectorAll('#skills .skill').length;
-        const entry = document.querySelector('.entry');
-        const entryDisplay = entry ? getComputedStyle(entry).display : null;
-        // FontAwesome is a local, required font (drives the section icons).
-        const faLoaded = document.fonts.check('16px "FontAwesome"');
-        const sheetCount = document.styleSheets.length;
-        return { missing, entryCount, skillCount, entryDisplay, faLoaded, sheetCount };
-      }, REQUIRED_SELECTORS);
-
-      if (probe.missing.length > 0) {
-        throw new Error(`missing required page sections: ${probe.missing.join(', ')}`);
-      }
-      if (probe.entryCount === 0) throw new Error('no education/experience entries rendered');
-      if (probe.skillCount === 0) throw new Error('no skills rendered');
-      // A CSS-grid entry proves the stylesheet was applied, not just linked.
-      if (probe.entryDisplay !== 'grid' || probe.sheetCount === 0) {
-        throw new Error(`stylesheet not applied (entry display="${probe.entryDisplay}", sheets=${probe.sheetCount})`);
-      }
-      if (!probe.faLoaded) {
-        throw new Error('required FontAwesome icon font failed to load');
-      }
-      if (failures.length > 0) {
-        throw new Error(`required assets failed to load:\n    - ${failures.join('\n    - ')}`);
-      }
-
-      await page.pdf({
-        path: outPath,
-        printBackground: true,
-        preferCSSPageSize: true,
-        displayHeaderFooter: false,
-        tagged: true,
-        outline: true,
+      const page = await browser.newPage();
+      // Collect same-origin asset failures so missing CSS/fonts/PDFs fail hard.
+      const failures = [];
+      page.on('response', (response) => {
+        const url = response.url();
+        if (url.startsWith(origin) && response.status() >= 400) {
+          failures.push(`${response.status()} ${url}`);
+        }
       });
-    } finally {
-      await page.close();
-    }
+      page.on('requestfailed', (request) => {
+        const url = request.url();
+        if (url.startsWith(origin)) failures.push(`failed ${url} (${request.failure()?.errorText})`);
+      });
 
-    // Confirm a non-empty, valid PDF landed on disk.
-    const { size } = await stat(outPath);
-    if (size === 0 || !isPdf(outPath)) {
-      throw new Error(`generated file dist/${pdfName} is not a valid PDF`);
+      try {
+        const response = await page.goto(pageUrl, { waitUntil: 'load', timeout: 30000 });
+        if (!response || !response.ok()) {
+          throw new Error(`page did not load (status ${response ? response.status() : 'none'})`);
+        }
+
+        // Render under print media so the verification reflects the PDF output.
+        await page.emulateMedia({ media: 'print' });
+
+        // Deterministic wait: no arbitrary sleeps.
+        await page.evaluate(() => document.fonts.ready);
+
+        const probe = await page.evaluate((selectors) => {
+          const missing = selectors.filter((s) => !document.querySelector(s));
+          const entryCount = document.querySelectorAll('.entry').length;
+          const skillCount = document.querySelectorAll('#skills .skill').length;
+          const entry = document.querySelector('.entry');
+          const entryDisplay = entry ? getComputedStyle(entry).display : null;
+          // FontAwesome is a local, required font (drives the section icons).
+          const faLoaded = document.fonts.check('16px "FontAwesome"');
+          const sheetCount = document.styleSheets.length;
+          return { missing, entryCount, skillCount, entryDisplay, faLoaded, sheetCount };
+        }, REQUIRED_SELECTORS[variant]);
+
+        if (probe.missing.length > 0) {
+          throw new Error(`missing required page sections: ${probe.missing.join(', ')}`);
+        }
+        if (probe.entryCount === 0) throw new Error('no education/experience entries rendered');
+        if (probe.skillCount === 0) throw new Error('no skills rendered');
+        // A CSS-grid entry proves the stylesheet was applied, not just linked.
+        if (probe.entryDisplay !== 'grid' || probe.sheetCount === 0) {
+          throw new Error(`stylesheet not applied (entry display="${probe.entryDisplay}", sheets=${probe.sheetCount})`);
+        }
+        if (!probe.faLoaded) {
+          throw new Error('required FontAwesome icon font failed to load');
+        }
+        if (failures.length > 0) {
+          throw new Error(`required assets failed to load:\n    - ${failures.join('\n    - ')}`);
+        }
+
+        await page.pdf({
+          path: outPath,
+          printBackground: true,
+          preferCSSPageSize: true,
+          displayHeaderFooter: false,
+          tagged: true,
+          outline: true,
+        });
+      } finally {
+        await page.close();
+      }
+
+      // Confirm a non-empty, valid PDF landed on disk.
+      const { size } = await stat(outPath);
+      if (size === 0 || !isPdf(outPath)) {
+        throw new Error(`generated file dist/${pdfName} is not a valid PDF`);
+      }
+      if (variant === 'brief') {
+        const pages = await countPdfPages(outPath);
+        if (pages !== 1) {
+          throw new Error(`brief PDF dist/${pdfName} must be exactly 1 page, got ${pages}`);
+        }
+      }
+      log(`[${lang}/${variant}] wrote dist/${pdfName} (${(size / 1024).toFixed(1)} KB)`);
     }
-    log(`[${lang}] wrote dist/${pdfName} (${(size / 1024).toFixed(1)} KB)`);
   }
 }
 

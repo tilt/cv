@@ -12,12 +12,16 @@ abstract: >-
   und <em>statistischer Modellierung</em>.
 
 pdf_file: lebenslauf_till_breuer_de.pdf
+brief_pdf_file: lebenslauf_till_breuer_kurz.pdf
 pdf_label: PDF
 
 lang_switcher:
   label: English
   flag: "🇬🇧"
-  url: /
+
+variant_switcher:
+  full_label: Vollständiger Lebenslauf
+  brief_label: Kurzversion
 
 sections:
   education: Ausbildung

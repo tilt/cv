@@ -8,13 +8,24 @@ export const LANGUAGES = ['en', 'de'];
 export const VARIANTS = ['full', 'brief'];
 export const THEMES = ['classic', 'clean'];
 
-// Canonical on-site path for each language (before any GitHub Pages base path).
-// English lives at the root, German under /de/. The language switcher of each
-// language must point at the *other* language's home.
+// Canonical on-site path for each language and variant (before any GitHub
+// Pages base path). English lives at the root, German under /de/.
 export const LANG_HOME = {
   en: '/',
   de: '/de/',
 };
+
+export const VARIANT_HOME = {
+  full: LANG_HOME,
+  brief: {
+    en: '/brief/',
+    de: '/de/brief/',
+  },
+};
+
+export function pdfFileForVariant(data, variant) {
+  return variant === 'brief' ? data.brief_pdf_file : data.pdf_file;
+}
 
 // Sections that make up a single language. metadata.yaml carries the top-level
 // scalars/maps; the others each contribute one keyed list.
@@ -39,8 +50,10 @@ const FIELD_FILE = {
   fonts_url: 'metadata.yaml',
   abstract: 'metadata.yaml',
   pdf_file: 'metadata.yaml',
+  brief_pdf_file: 'metadata.yaml',
   pdf_label: 'metadata.yaml',
   lang_switcher: 'metadata.yaml',
+  variant_switcher: 'metadata.yaml',
   sections: 'metadata.yaml',
   icons: 'metadata.yaml',
   footer: 'metadata.yaml',
@@ -113,6 +126,7 @@ const REQUIRED_SCALARS = [
   'fonts_url',
   'abstract',
   'pdf_file',
+  'brief_pdf_file',
   'pdf_label',
 ];
 
@@ -136,9 +150,20 @@ function checkRequired(errors, lang, data) {
   if (!sw || typeof sw !== 'object') {
     errors.push(`[${lang}] ${locate(lang, 'lang_switcher')}: required field "lang_switcher" is missing`);
   } else {
-    for (const key of ['label', 'flag', 'url']) {
+    for (const key of ['label', 'flag']) {
       if (!sw[key]) {
         errors.push(`[${lang}] ${locate(lang, 'lang_switcher')}: "lang_switcher.${key}" is missing`);
+      }
+    }
+  }
+
+  const vs = data.variant_switcher;
+  if (!vs || typeof vs !== 'object') {
+    errors.push(`[${lang}] ${locate(lang, 'variant_switcher')}: required field "variant_switcher" is missing`);
+  } else {
+    for (const key of ['full_label', 'brief_label']) {
+      if (!vs[key]) {
+        errors.push(`[${lang}] ${locate(lang, 'variant_switcher')}: "variant_switcher.${key}" is missing`);
       }
     }
   }
@@ -204,28 +229,73 @@ function checkTheme(errors, lang, data) {
   }
 }
 
-function checkLangSwitch(errors, lang, data) {
-  const sw = data.lang_switcher;
-  if (!sw || !sw.url) return;
-  const others = LANGUAGES.filter(l => l !== lang);
-  const expected = others.map(l => LANG_HOME[l]);
-  if (!expected.includes(sw.url)) {
-    errors.push(
-      `[${lang}] ${locate(lang, 'lang_switcher')}: "lang_switcher.url" is "${sw.url}" but should point at another language home (${expected.join(', ')})`
-    );
-  }
-}
-
-function checkPdfFile(errors, lang, data, seenPdf) {
-  const file = data.pdf_file;
+function checkPdfName(errors, lang, field, file, seenPdf) {
   if (!file) return;
   if (!/^[a-z0-9._-]+\.pdf$/i.test(file)) {
-    errors.push(`[${lang}] ${locate(lang, 'pdf_file')}: "pdf_file" ("${file}") is not a valid PDF filename`);
+    errors.push(`[${lang}] ${locate(lang, field)}: "${field}" ("${file}") is not a valid PDF filename`);
   }
   if (seenPdf.has(file)) {
-    errors.push(`[${lang}] ${locate(lang, 'pdf_file')}: "pdf_file" ("${file}") is not unique across languages`);
+    errors.push(`[${lang}] ${locate(lang, field)}: "${field}" ("${file}") is not unique across languages/variants`);
   }
   seenPdf.add(file);
+}
+
+function checkPdfFiles(errors, lang, data, seenPdf) {
+  checkPdfName(errors, lang, 'pdf_file', data.pdf_file, seenPdf);
+  checkPdfName(errors, lang, 'brief_pdf_file', data.brief_pdf_file, seenPdf);
+}
+
+function checkSkills(errors, lang, data) {
+  const categories = data.skills;
+  if (!Array.isArray(categories) || categories.length === 0) {
+    errors.push(`[${lang}] ${locate(lang, 'skills')}: "skills" must be a non-empty list of categories`);
+    return;
+  }
+
+  const seenCategoryIds = new Set();
+  categories.forEach((category, categoryIndex) => {
+    const where = `[${lang}] ${locate(lang, 'skills')}: skills[${categoryIndex}]`;
+    if (!category || typeof category !== 'object') {
+      errors.push(`${where} is not a mapping`);
+      return;
+    }
+    for (const field of ['id', 'category']) {
+      const value = category[field];
+      if (value === undefined || value === null || String(value).trim() === '') {
+        errors.push(`${where}: required field "${field}" is missing or empty`);
+      }
+    }
+    if (category.id) {
+      if (seenCategoryIds.has(category.id)) errors.push(`${where}: duplicate id "${category.id}"`);
+      seenCategoryIds.add(category.id);
+    }
+    if (!Array.isArray(category.items) || category.items.length === 0) {
+      errors.push(`${where} (id="${category.id ?? '?'}"): "items" must be a non-empty list`);
+      return;
+    }
+
+    const seenItemIds = new Set();
+    category.items.forEach((item, itemIndex) => {
+      const itemWhere = `${where}.items[${itemIndex}]`;
+      if (!item || typeof item !== 'object') {
+        errors.push(`${itemWhere} is not a mapping`);
+        return;
+      }
+      for (const field of ['id', 'name']) {
+        const value = item[field];
+        if (value === undefined || value === null || String(value).trim() === '') {
+          errors.push(`${itemWhere}: required field "${field}" is missing or empty`);
+        }
+      }
+      if (item.id) {
+        if (seenItemIds.has(item.id)) errors.push(`${itemWhere}: duplicate id "${item.id}" in category "${category.id ?? '?'}"`);
+        seenItemIds.add(item.id);
+      }
+      if (item.experience !== undefined && String(item.experience).trim() === '') {
+        errors.push(`${itemWhere} (id="${item.id ?? '?'}"): "experience" must not be empty when present`);
+      }
+    });
+  });
 }
 
 function checkCrossLanguage(errors, byLang) {
@@ -233,13 +303,15 @@ function checkCrossLanguage(errors, byLang) {
   if (langs.length < 2) return;
   const [base, ...rest] = langs;
 
+  const idsMatch = (a, b) => a.length === b.length && a.every((id, i) => id === b[i]);
+
   for (const field of ['education', 'experience']) {
     const baseEntries = Array.isArray(byLang[base][field]) ? byLang[base][field] : [];
     const baseIds = baseEntries.map(e => e?.id);
     for (const lang of rest) {
       const entries = Array.isArray(byLang[lang][field]) ? byLang[lang][field] : [];
       const ids = entries.map(e => e?.id);
-      if (ids.length !== baseIds.length || ids.some((id, i) => id !== baseIds[i])) {
+      if (!idsMatch(ids, baseIds)) {
         errors.push(
           `[${lang}] data/${lang}/${field}.yaml: "${field}" ids/order [${ids.join(', ')}] do not match [${base}] [${baseIds.join(', ')}]`
         );
@@ -256,6 +328,28 @@ function checkCrossLanguage(errors, byLang) {
         }
       });
     }
+  }
+
+  const baseSkillCategories = Array.isArray(byLang[base].skills) ? byLang[base].skills : [];
+  const baseCategoryIds = baseSkillCategories.map(c => c?.id);
+  for (const lang of rest) {
+    const categories = Array.isArray(byLang[lang].skills) ? byLang[lang].skills : [];
+    const categoryIds = categories.map(c => c?.id);
+    if (!idsMatch(categoryIds, baseCategoryIds)) {
+      errors.push(
+        `[${lang}] data/${lang}/skills.yaml: category ids/order [${categoryIds.join(', ')}] do not match [${base}] [${baseCategoryIds.join(', ')}]`
+      );
+      continue;
+    }
+    categories.forEach((category, i) => {
+      const itemIds = Array.isArray(category?.items) ? category.items.map(item => item?.id) : [];
+      const baseItemIds = Array.isArray(baseSkillCategories[i]?.items) ? baseSkillCategories[i].items.map(item => item?.id) : [];
+      if (!idsMatch(itemIds, baseItemIds)) {
+        errors.push(
+          `[${lang}] data/${lang}/skills.yaml: category "${category?.id ?? '?'}" item ids/order [${itemIds.join(', ')}] do not match [${base}] [${baseItemIds.join(', ')}]`
+        );
+      }
+    });
   }
 }
 
@@ -280,11 +374,10 @@ export function validateData(byLang) {
     }
     checkRequired(errors, lang, data);
     checkTheme(errors, lang, data);
-    checkLangSwitch(errors, lang, data);
-    checkPdfFile(errors, lang, data, seenPdf);
+    checkPdfFiles(errors, lang, data, seenPdf);
     checkEntries(errors, lang, data, 'education', ['id', 'period', 'school', 'details', 'variants']);
     checkEntries(errors, lang, data, 'experience', ['id', 'period', 'company', 'title', 'description', 'variants']);
-    checkEntries(errors, lang, data, 'skills', ['name', 'experience']);
+    checkSkills(errors, lang, data);
     checkEntries(errors, lang, data, 'references', ['name', 'url', 'relation']);
     if (!Array.isArray(data.interests) || data.interests.length === 0) {
       errors.push(`[${lang}] ${locate(lang, 'interests')}: "interests" must be a non-empty list`);

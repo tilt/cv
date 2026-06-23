@@ -2,20 +2,26 @@ import { writeFileSync, mkdirSync, cpSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import nunjucks from 'nunjucks';
-import { LANGUAGES, VARIANTS, loadAllLanguages, validateData } from './data.mjs';
+import { LANGUAGES, VARIANTS, VARIANT_HOME, loadAllLanguages, pdfFileForVariant, validateData } from './data.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
 const dist = resolve(root, 'dist');
 
-const variant = process.argv.includes('--variant')
-  ? process.argv[process.argv.indexOf('--variant') + 1]
-  : 'full';
+const variantIndex = process.argv.indexOf('--variant');
+const requestedVariant = variantIndex === -1 ? null : process.argv[variantIndex + 1];
 
-if (!VARIANTS.includes(variant)) {
-  console.error(`✖ Unknown variant "${variant}" (allowed: ${VARIANTS.join(', ')})`);
+if (variantIndex !== -1 && (!requestedVariant || requestedVariant.startsWith('--'))) {
+  console.error(`✖ Missing value for --variant (allowed: ${VARIANTS.join(', ')})`);
   process.exit(1);
 }
+
+if (requestedVariant && !VARIANTS.includes(requestedVariant)) {
+  console.error(`✖ Unknown variant "${requestedVariant}" (allowed: ${VARIANTS.join(', ')})`);
+  process.exit(1);
+}
+
+const variantsToBuild = requestedVariant ? [requestedVariant] : VARIANTS;
 
 const basePath = (process.argv.includes('--base')
   ? process.argv[process.argv.indexOf('--base') + 1]
@@ -42,24 +48,45 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-for (const lang of LANGUAGES) {
-  const data = byLang[lang];
+function outputDirFor(lang, variant) {
+  const home = VARIANT_HOME[variant][lang];
+  const rel = home.replace(/^\/+|\/+$/g, '');
+  return rel ? resolve(dist, rel) : dist;
+}
+
+function dataForVariant(source, lang, variant) {
+  const data = structuredClone(source);
+  const otherLang = LANGUAGES.find(l => l !== lang);
 
   data.basePath = basePath;
-  data.lang_switcher.url = basePath + data.lang_switcher.url;
+  data.variant = variant;
+  data.pdf_file = pdfFileForVariant(data, variant);
+  data.lang_switcher.url = basePath + VARIANT_HOME[variant][otherLang];
+  data.variant_switcher = {
+    label: variant === 'brief' ? data.variant_switcher.full_label : data.variant_switcher.brief_label,
+    url: basePath + VARIANT_HOME[variant === 'brief' ? 'full' : 'brief'][lang],
+  };
 
   if (variant !== 'full') {
     data.education = data.education.filter(e => e.variants?.includes(variant));
     data.experience = data.experience.filter(e => e.variants?.includes(variant));
   }
 
+  return data;
+}
+
+for (const variant of variantsToBuild) {
   const template = existsSync(resolve(root, 'templates', `${variant}.njk`))
     ? `${variant}.njk`
     : 'full.njk';
-  const html = env.render(template, data);
-  const outDir = lang === 'en' ? dist : resolve(dist, lang);
-  mkdirSync(outDir, { recursive: true });
-  writeFileSync(resolve(outDir, 'index.html'), html);
+
+  for (const lang of LANGUAGES) {
+    const data = dataForVariant(byLang[lang], lang, variant);
+    const html = env.render(template, data);
+    const outDir = outputDirFor(lang, variant);
+    mkdirSync(outDir, { recursive: true });
+    writeFileSync(resolve(outDir, 'index.html'), html);
+  }
 }
 
 mkdirSync(resolve(dist, 'assets', 'fonts'), { recursive: true });
@@ -75,4 +102,4 @@ for (const file of staticFiles) {
   }
 }
 
-console.log(`Built ${LANGUAGES.length} languages (variant: ${variant}) → dist/`);
+console.log(`Built ${LANGUAGES.length} languages (${variantsToBuild.join(', ')} variants) → dist/`);

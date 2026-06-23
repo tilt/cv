@@ -1,11 +1,18 @@
     <section id="skills">
       <h3><span><i class="fa fa-{{ icons.skills }}" aria-hidden="true"></i> {{ sections.skills }}</span></h3>
-      <dl class="skills">
-        {% for skill in skills %}
-        <div class="skill">
-          <dt>{{ skill.name | safe }}</dt>
-          <dd>{{ skill.experience }}</dd>
-        </div>
+      <div class="skill-groups">
+        {% for group in skills %}
+        <section class="skill-group" aria-labelledby="skills-{{ group.id }}">
+          <h4 id="skills-{{ group.id }}">{{ group.category }}</h4>
+          <dl class="skills">
+            {% for skill in group.items %}
+            <div class="skill">
+              <dt>{{ skill.name | safe }}</dt>
+              <dd class="skill__experience{% if not skill.experience %} skill__experience--not-applicable{% endif %}">{% if skill.experience %}{{ skill.experience }}{% endif %}</dd>
+            </div>
+            {% endfor %}
+          </dl>
+        </section>
         {% endfor %}
-      </dl>
+      </div>
     </section>

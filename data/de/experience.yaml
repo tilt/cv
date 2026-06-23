@@ -6,7 +6,7 @@ experience:
     title: Data Scientist
     description: |
       <h4>Projekte</h4>
-      <p>Als Freiberufler habe ich algorithmische Herausforderungen in verschiedenen Bereichen bearbeitet, darunter Computer Vision, natürliche Sprachverarbeitung und Bedarfsprognosen. Darüber hinaus habe ich Data-Engineering-Aufgaben übernommen, mit Schwerpunkt auf der Implementierung von Datenpipelines und dem Ausbau von Data Warehouses. Meine Rolle umfasste Konzeptentwicklung, Forschung und Entwicklung, praktische Umsetzung und Projektkoordination.</p>
+      <p>Als freiberuflicher Data Scientist habe ich abgeschlossene Kundenprojekte umgesetzt, die sowohl angewandtes Machine Learning / Deep Learning als auch belastbares Data Engineering abdeckten: Datenmodellierung, Data-Warehouse-Architektur und zuverlässige Datenflüsse. Die Arbeit reichte von fokussierten Research Spikes und Machbarkeitsstudien bis zu produktiver Software, darunter ML-Microservices, Docker-basierte Integration in Produktionssysteme, cloudbasierte Datenpipelines und Systeme mit Managed Compute und Storage auf AWS und GCloud. Je nach Projekt arbeitete ich in bestehenden Teams, leitete kleine Projektteams oder führte Lösungen eigenständig von der Konzeption bis zur Implementierung. Der gemeinsame Kern war, unsichere ML- und Datenprobleme in funktionierende Systeme, belastbare Analysen oder entscheidungsreife Prototypen mit praktischem Nutzen für Kunden zu überführen.</p>
       <p>Projekte, an denen ich gearbeitet habe:</p>
       <ul>
         <li>Swipe-basierte Empfehlungs-App mit inhaltsbasiertem Image Retrieval und einem Bandit-Algorithmus</li>
@@ -22,6 +22,11 @@ experience:
         <li>Text-Extraktion und Entitätszuordnung für historische Museum Labels zur Artenkategorisierung</li>
         <li>Gestenerkennung in Videos mit Video-Transformer-Modellen</li>
       </ul>
+    brief_summary: Freiberuflicher Data Scientist für abgeschlossene ML- und Data-Engineering-Projekte, von Research Spikes bis zu cloudbasierter Produktionssoftware.
+    brief_points:
+      - Kundenprobleme in Computer Vision, NLP, Empfehlungssystemen, Forecasting und Videoanalyse gelöst
+      - Produktive ML-Microservices, Datenpipelines und Data Warehouses auf AWS und GCloud umgesetzt
+      - In Teams gearbeitet, kleine Teams geleitet und ausgewählte Projekte eigenständig von Konzept bis Implementierung geliefert
     variants: [full, brief]
 
   - id: mediaire
@@ -37,7 +42,10 @@ experience:
         <li>Evaluation und Benchmarking von State-of-the-Art-Lösungen für medizinische Bildanalyse</li>
         <li>Entwicklung und Verbesserung von Deep-Learning-Modellen</li>
       </ul>
-    variants: [full]
+    brief_summary: Benchmarking, Anpassung und Integration von Deep-Learning-Modellen für MRT-Segmentierung und -Klassifikation.
+    brief_points:
+      - Prototypen für medizinische Bildanalyse entwickelt und State-of-the-Art-Ansätze evaluiert
+    variants: [full, brief]
 
   - id: twenty-billion-neurons
     period: 6/2017 - 8/2019
@@ -53,7 +61,10 @@ experience:
         <li>Umsetzung von Kundenprojekten</li>
         <li>Mentoring-Aufgaben</li>
       </ul>
-    variants: [full]
+    brief_summary: Entwicklung neuronaler Netze für räumliche und zeitliche Aktivitätserkennung in Echtzeit-Videos.
+    brief_points:
+      - Videoanalyse-Technologie in Kundenprojekten angewendet und Mentoring übernommen
+    variants: [full, brief]
 
   - id: unbelievable-machine
     period: 11/2014 - 6/2017
@@ -78,7 +89,10 @@ experience:
         <li>Einführung von Best Practices für Programmierung</li>
         <li>Referent auf mehreren Konferenzen, darunter der bitkom Big Data Summit</li>
       </ul>
-    variants: [full]
+    brief_summary: Leitung angewandter Data-Science-Projekte in Computer Vision, Empfehlungssystemen, Predictive Maintenance und Forecasting.
+    brief_points:
+      - Kundenkommunikation, technische Konzepte und interne Best Practices für Programmierung verantwortet
+    variants: [full, brief]
 
   - id: bitcrowd
     period: 8/2014 - 10/2014

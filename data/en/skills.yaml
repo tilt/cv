@@ -1,31 +1,71 @@
-# Technologies extracted from the freelance experience entry.
-# Plain factual name + self-reported years of experience. No subjective ratings.
+# Skills are grouped by category so technologies, languages and methods do not
+# compete in one flat list. Experience is only shown where a year count is
+# meaningful and self-reported.
 skills:
-  - name: Python
-    experience: 12 years
-  - name: SQL &amp; relational databases
-    experience: 15 years
-  - name: pandas
-    experience: 10 years
-  - name: scikit-learn
-    experience: 10 years
-  - name: PyTorch
-    experience: 7 years
-  - name: matplotlib, altair
-    experience: 10 years
-  - name: Elasticsearch and ELK-stack
-    experience: 5 years
-  - name: GCloud &amp; BigQuery
-    experience: 2 years
-  - name: AWS
-    experience: 2 years
-  - name: dbt
-    experience: 1 year
-  - name: Airflow
-    experience: 1 year
-  - name: Keras + Tensorflow
-    experience: 3 years
-  - name: Ruby
-    experience: 7 years
-  - name: JavaScript, AngularJS
-    experience: 5 years
+  - id: languages
+    category: Programming &amp; query languages
+    items:
+      - id: python
+        name: Python
+        experience: 12 years
+      - id: sql
+        name: SQL &amp; relational databases
+        experience: 15 years
+      - id: ruby
+        name: Ruby
+        experience: 7 years
+      - id: javascript
+        name: JavaScript, AngularJS
+        experience: 5 years
+
+  - id: ml-libraries
+    category: Machine learning &amp; analysis
+    items:
+      - id: pytorch
+        name: PyTorch
+        experience: 7 years
+      - id: scikit-learn
+        name: scikit-learn
+        experience: 10 years
+      - id: pandas
+        name: pandas
+        experience: 10 years
+      - id: tensorflow
+        name: Keras + TensorFlow
+        experience: 3 years
+      - id: visualization
+        name: matplotlib, altair
+        experience: 10 years
+
+  - id: data-platforms
+    category: Data platforms &amp; orchestration
+    items:
+      - id: elasticsearch
+        name: Elasticsearch and ELK stack
+        experience: 5 years
+      - id: gcloud-bigquery
+        name: GCloud &amp; BigQuery
+        experience: 2 years
+      - id: aws
+        name: AWS
+        experience: 2 years
+      - id: dbt
+        name: dbt
+        experience: 1 year
+      - id: airflow
+        name: Airflow
+        experience: 1 year
+
+  - id: methods
+    category: Methods &amp; domains
+    items:
+      - id: computer-vision
+        name: Computer vision &amp; video understanding
+      - id: nlp
+        name: Natural language processing
+      - id: recommendations
+        name: Recommender systems &amp; bandit algorithms
+      - id: forecasting
+        name: Time-series forecasting
+      - id: statistics
+        name: Statistical modelling &amp; probability theory

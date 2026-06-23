@@ -6,7 +6,7 @@ experience:
     title: Data Scientist
     description: |
       <h4>Projects</h4>
-      <p>As a freelancer, I have tackled algorithmic challenges across various domains, including computer vision, natural language processing, and demand forecasting. In addition to these, I have also engaged in data engineering tasks, focusing on the implementation of data pipelines and the expansion of data warehouses. My role has encompassed the development of concepts, research and development, hands-on implementation, and project coordination tasks.</p>
+      <p>As a freelance data scientist, I have delivered completed client projects covering both applied machine learning / deep learning and robust data engineering: data modelling, warehouse architecture and reliable data flows. The work has ranged from focused research spikes and feasibility studies to production software, including ML microservices, Docker-based integration into production systems, cloud-based data pipelines and systems using managed compute and storage on AWS and GCloud. Depending on the project, I worked as part of existing teams, led small project teams or carried solutions from concept to implementation independently. The common thread has been turning uncertain ML and data problems into working systems, validated analyses or decision-ready prototypes with practical value for customers.</p>
       <p>Projects I have worked on include:</p>
       <ul>
         <li>Swipe-based recommendation app using content-based image retrieval and a bandit algorithm</li>
@@ -22,6 +22,11 @@ experience:
         <li>Text extraction and entity matching from historical museum labels for species categorization</li>
         <li>Gesture recognition in videos with video transformer models</li>
       </ul>
+    brief_summary: Freelance data scientist delivering completed ML and data engineering projects, from research spikes to cloud-based production software.
+    brief_points:
+      - Solved customer problems in computer vision, NLP, recommender systems, forecasting and video understanding
+      - Built production ML microservices, data pipelines and data warehouses on AWS and GCloud
+      - Worked in teams, led small teams and delivered selected projects independently from concept to implementation
     variants: [full, brief]
 
   - id: mediaire
@@ -37,7 +42,10 @@ experience:
         <li>Evaluating and benchmarking state-of-the-art solutions for medical image analysis</li>
         <li>Development and improvement of Deep Learning-models</li>
       </ul>
-    variants: [full]
+    brief_summary: Benchmarked, adapted and integrated deep learning models for MRI segmentation and classification.
+    brief_points:
+      - Prototyped medical image analysis models and evaluated state-of-the-art approaches
+    variants: [full, brief]
 
   - id: twenty-billion-neurons
     period: 6/2017 - 8/2019
@@ -53,7 +61,10 @@ experience:
         <li>Realization of customer projects</li>
         <li>Mentoring tasks</li>
       </ul>
-    variants: [full]
+    brief_summary: Developed neural network systems for real-time spatial and temporal activity detection in video.
+    brief_points:
+      - Applied video understanding technology in customer projects and supported mentoring
+    variants: [full, brief]
 
   - id: unbelievable-machine
     period: 11/2014 - 6/2017
@@ -78,7 +89,10 @@ experience:
         <li>Introducing best practices for coding</li>
         <li>Speaker at several conferences including the bitkom Big Data Summit</li>
       </ul>
-    variants: [full]
+    brief_summary: Led applied data science projects across computer vision, recommendations, predictive maintenance and forecasting.
+    brief_points:
+      - Owned customer communication, technical concepts and internal coding best practices
+    variants: [full, brief]
 
   - id: bitcrowd
     period: 8/2014 - 10/2014

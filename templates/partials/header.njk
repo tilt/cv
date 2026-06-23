@@ -12,7 +12,10 @@
             </li>
           </ul>
         </address>
-        <nav class="lang-switcher">
+        <nav class="switcher-links" aria-label="CV options">
+          {% if variant_switcher %}
+          <a class="variant-switcher" href="{{ variant_switcher.url }}">{{ variant_switcher.label }}</a>
+          {% endif %}
           <a href="{{ lang_switcher.url }}">{{ lang_switcher.flag }} {{ lang_switcher.label }}</a>
         </nav>
       </div>

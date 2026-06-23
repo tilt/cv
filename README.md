@@ -6,6 +6,7 @@ Sass. Bilingual PDFs are generated deterministically from the built HTML with
 Playwright (headless Chromium).
 
 - English at `/`, German at `/de/`
+- Brief English at `/brief/`, brief German at `/de/brief/`
 - GitHub Pages project base-path support (`/cv`)
 - Theme support, full and brief variants
 - Build-time data validation and HTML validation
@@ -80,9 +81,9 @@ npm run validate:data
 ```
 
 It checks: required fields; supported languages; matching entry IDs and ordering
-between English and German; matching `variants` declarations; valid theme names;
-valid and unique PDF filenames; correct language-switch destinations. Errors name
-the offending language, file, and field, e.g.:
+between English and German; matching `variants` declarations; matching skill
+category/item IDs; valid theme names; valid and unique PDF filenames. Errors
+name the offending language, file, and field, e.g.:
 
 ```
 [de] data/de/experience.yaml: "experience" ids/order [...] do not match [en] [...]
@@ -90,16 +91,34 @@ the offending language, file, and field, e.g.:
 
 ## Variants
 
-Every education/experience entry has a `variants` array. The default `full`
-variant renders everything; `brief` filters to entries tagged `brief`:
+Every education/experience entry has a `variants` array. The full variant
+renders the complete CV; `brief` filters to entries tagged `brief` and uses
+purpose-written `brief_summary` / `brief_points` fields where present. Skills
+are rendered in both variants from categorized data.
+
+The default build publishes both variants side by side:
 
 ```sh
-node src/build.mjs --variant brief
+npm run build
+```
+
+Output routes:
+
+- Full: `/` and `/de/`
+- Brief: `/brief/` and `/de/brief/`
+
+Rendered pages include a same-language switch between full and brief variants,
+plus the existing language switcher.
+
+For a targeted local rebuild of only one variant:
+
+```sh
+npm run build:html -- --variant brief
 ```
 
 If a matching template (`brief.njk`) exists it is used; otherwise `full.njk` is
-rendered with the filtered data. The skills, interests and references sections
-render in every variant.
+rendered with the filtered data. The brief template intentionally omits
+interests and references to keep the PDF to one A4 page.
 
 ## Themes
 
@@ -124,10 +143,10 @@ this automatically from the Pages configuration.
 ## Build
 
 ```sh
-npm run build        # compile CSS + generate HTML → dist/ (web build)
+npm run build        # compile CSS + generate full + brief HTML → dist/ (web build)
 npm run build:css    # CSS only
-npm run build:html   # HTML only
-npm run pdf          # render EN + DE PDFs from dist/ (requires Chromium)
+npm run build:html   # HTML only, both variants unless --variant is passed
+npm run pdf          # render full + brief EN/DE PDFs from dist/ (requires Chromium)
 npm run build:prod   # complete production build: web build + PDFs
 ```
 
@@ -136,7 +155,8 @@ The same steps are available through `make` (each target uses `nvm`):
 ```sh
 make install      # npm install + Chromium
 make build        # web build → dist/
-make pdf          # web build + PDFs → dist/
+make build-brief  # targeted brief HTML build → dist/brief/ and dist/de/brief/
+make pdf          # web build + full + brief PDFs → dist/
 make build-prod   # complete production build
 make watch        # rebuild CSS on change
 make serve        # build + start local server
@@ -146,8 +166,8 @@ make check-prod   # full: data validation + build + validate HTML + PDFs
 
 ## Bilingual PDF generation
 
-`src/generate-pdf.mjs` renders both PDFs **from the already-built HTML** — it
-does not rebuild the site. It:
+`src/generate-pdf.mjs` renders all full and brief PDFs **from the already-built
+HTML** — it does not rebuild the site. It:
 
 - serves `dist/` over a local HTTP server (honouring the base path),
 - loads `/` (English) and `/de/` (German),
@@ -157,12 +177,15 @@ does not rebuild the site. It:
   same-origin asset is missing,
 - writes tagged PDFs with outlines and print backgrounds, using CSS `@page`
   sizing via Playwright's `preferCSSPageSize`,
+- fails if a brief PDF is not exactly one A4 page,
 - always closes the browser and server, including on error.
 
-The output filenames match the existing public links
-(`lebenslauf_till_breuer.pdf`, `lebenslauf_till_breuer_de.pdf`) and are written
-into `dist/`. Print styling targets a compact, two-column, ~3-page A4 layout and
-keeps individual entries from splitting across pages.
+The full output filenames match the existing public links
+(`lebenslauf_till_breuer.pdf`, `lebenslauf_till_breuer_de.pdf`). Brief PDFs are
+written as `lebenslauf_till_breuer_brief.pdf` and
+`lebenslauf_till_breuer_kurz.pdf`. All PDFs are written into `dist/`. Full print
+styling targets a compact, two-column, ~3-page A4 layout; brief print styling
+targets one A4 page. Individual entries are kept from splitting across pages.
 
 ## Deployment
 
@@ -183,8 +206,8 @@ One-time setup: in **Settings → Pages**, set **Source** to **GitHub Actions**.
 
 ## Generated vs. tracked files
 
-- Generated (gitignored): everything under `dist/`, including the two CV PDFs and
-  the copied fonts/`thesis.pdf`. The CV PDFs are **not** checked in — they are
-  produced from the HTML on every build.
+- Generated (gitignored): everything under `dist/`, including the full and brief
+  CV PDFs and the copied fonts/`thesis.pdf`. The CV PDFs are **not** checked in
+  — they are produced from the HTML on every build.
 - Tracked sources: `data/`, `templates/`, `src/`, `assets/fonts/`, and
   `thesis.pdf` (a static source asset linked from the CV).

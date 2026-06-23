@@ -280,13 +280,28 @@ $icons: (
 }
 
 // ---------------------------------------------------------------------------
-// Skills: a semantic description list (technology → years), no ratings.
+// Skills: categorized semantic description lists. Experience is shown only for
+// concrete technologies where a year count is meaningful.
 // ---------------------------------------------------------------------------
-#skills .skills {
+#skills .skill-groups {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.15rem 2rem;
+  gap: 0.85rem 2rem;
   margin: 0.5rem 0 0;
+}
+
+#skills .skill-group {
+  h4 {
+    margin: 0 0 0.25rem;
+    color: var(--font-color);
+    font-size: 1rem;
+  }
+}
+
+#skills .skills {
+  display: grid;
+  gap: 0.15rem;
+  margin: 0;
 }
 
 #skills .skill {
@@ -307,6 +322,71 @@ $icons: (
   color: var(--unobtrusive-color);
   font-weight: 200;
   white-space: nowrap;
+}
+
+#skills .skill__experience--not-applicable {
+  display: none;
+}
+
+.variant-brief {
+  max-width: 60rem;
+
+  #header__name {
+    font-size: 3.8rem;
+  }
+
+  #header__profession {
+    font-size: 1.35rem;
+  }
+
+  #abstract p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  h3 {
+    margin: 1rem 0 0.4rem;
+    font-size: 1.15rem;
+  }
+
+  .entries {
+    margin-top: 0.25rem;
+  }
+
+  .entry {
+    grid-template-columns: minmax(140px, 12rem) minmax(0, 1fr);
+    margin-bottom: 0.55rem;
+  }
+
+  .period {
+    margin-top: 0.25rem;
+  }
+
+  .brief-summary {
+    color: var(--unobtrusive-color);
+  }
+
+  .brief-points {
+    margin: 0.2rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--unobtrusive-color);
+  }
+
+  #skills .skill-groups {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.5rem 1rem;
+  }
+
+  #skills .skill {
+    display: block;
+    padding: 0.05rem 0;
+  }
+
+  #skills dd {
+    display: inline;
+    margin-left: 0.25rem;
+    font-size: 0.85em;
+  }
 }
 
 #references dl {
@@ -332,7 +412,10 @@ $icons: (
   }
 }
 
-.lang-switcher {
+.switcher-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
   font-size: 0.85rem;
 }
 
@@ -421,7 +504,7 @@ $icons: (
     }
   }
 
-  #skills .skills {
+  #skills .skill-groups {
     grid-template-columns: 1fr;
   }
 
@@ -444,7 +527,7 @@ $icons: (
     justify-content: center;
   }
 
-  .lang-switcher {
+  .switcher-links {
     text-align: center;
   }
 
@@ -520,8 +603,70 @@ $icons: (
     content: none;
   }
 
-  .lang-switcher,
+  .switcher-links,
   #footer {
     display: none;
+  }
+
+  .variant-brief {
+    font-size: 8pt;
+
+    #header__name {
+      font-size: 27pt;
+    }
+
+    #header__profession {
+      font-size: 10.5pt;
+    }
+
+    #abstract p {
+      margin-top: 5pt;
+      font-size: 9pt;
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 7pt 0 3pt;
+      font-size: 10pt;
+    }
+
+    .contact-and-lang {
+      margin-top: 4pt;
+    }
+
+    .entry {
+      grid-template-columns: minmax(104px, 28mm) minmax(0, 1fr);
+      column-gap: 6pt;
+      margin-bottom: 4pt;
+    }
+
+    .period {
+      margin-top: 2pt;
+    }
+
+    .brief-points {
+      margin-top: 1pt;
+      padding-left: 10pt;
+    }
+
+    #skills .skill-groups {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 3pt 8pt;
+      margin-top: 2pt;
+    }
+
+    #skills .skill-group h4 {
+      margin-bottom: 1pt;
+      font-size: 8.5pt;
+    }
+
+    #skills .skill {
+      border-bottom: 0;
+      line-height: 1.2;
+    }
+
+    #skills dd {
+      font-size: 7pt;
+    }
   }
 }

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="{{ lang }}" data-theme="{{ theme }}">
+  <head>
+    {% include "partials/head.njk" %}
+  </head>
+  <body class="variant-brief">
+{% include "partials/header.njk" %}
+
+    <main class="brief-layout">
+      <section id="abstract">
+        <p>{{ abstract | safe }}</p>
+      </section>
+
+{% include "partials/skills.njk" %}
+
+      <section id="experience">
+        <h3><span><i class="fa fa-{{ icons.experience }}" aria-hidden="true"></i> {{ sections.experience }}</span></h3>
+        <div class="entries">
+          {% for entry in experience %}
+          <article class="entry brief-entry" id="experience-{{ entry.id }}">
+            <header class="entry__aside">
+              <p class="company">{{ entry.company }}</p>
+              {% if entry.company_details %}
+              <small class="company-details">{{ entry.company_details }}</small>
+              {% endif %}
+              <p class="period">{{ entry.period }}</p>
+            </header>
+            <div class="entry__main">
+              <p class="employment">{{ entry.title }}</p>
+              {% if entry.brief_summary %}<p class="brief-summary">{{ entry.brief_summary | safe }}</p>{% endif %}
+              {% if entry.brief_points %}
+              <ul class="brief-points">
+                {% for point in entry.brief_points %}
+                <li>{{ point | safe }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section id="education">
+        <h3><span><i class="fa fa-{{ icons.education }}" aria-hidden="true"></i> {{ sections.education }}</span></h3>
+        <div class="entries">
+          {% for entry in education %}
+          <article class="entry brief-entry" id="education-{{ entry.id }}">
+            <header class="entry__aside">
+              <p class="period">{{ entry.period }}</p>
+            </header>
+            <div class="entry__main">
+              <p class="school">{{ entry.school }}</p>
+              <p class="school-details">{{ entry.details | safe }}</p>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+    </main>
+
+{% include "partials/footer.njk" %}
+  </body>
+</html>

@@ -4,7 +4,7 @@ NVM_DIR ?= $(HOME)/.nvm
 NODE_VERSION := $(shell cat .nvmrc)
 NVM := . "$(NVM_DIR)/nvm.sh" && nvm use >/dev/null &&
 
-.PHONY: ensure-node install install-browser build pdf build-prod watch serve check check-prod deploy clean
+.PHONY: ensure-node install install-browser build build-brief pdf build-prod watch serve check check-prod deploy clean
 
 ensure-node:
 	@if [ ! -s "$(NVM_DIR)/nvm.sh" ]; then \
@@ -28,6 +28,10 @@ install-browser: ensure-node
 
 build: ensure-node
 	$(NVM) npm run build
+
+build-brief: ensure-node
+	$(NVM) npm run build:css
+	$(NVM) npm run build:html -- --variant brief
 
 # Build the web output, then render both PDFs from it with Playwright.
 pdf: build
