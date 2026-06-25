@@ -588,7 +588,8 @@ $icons: (
 }
 
 @media screen and (max-width: 700px) {
-  .intro {
+  .intro,
+  .variant-brief .intro {
     grid-template-columns: 1fr;
   }
 
@@ -638,12 +639,42 @@ $icons: (
   #interests ul {
     grid-template-columns: 1fr;
   }
+
+  // Brief variant: collapse its denser desktop grids the same way. These rules
+  // need selectors at least as specific as their .variant-brief counterparts,
+  // since media queries do not raise specificity.
+  .variant-brief #header__name {
+    font-size: 3rem;
+  }
+
+  .variant-brief .entry,
+  .variant-brief.brief-de .entry {
+    grid-template-columns: 1fr;
+    margin-bottom: 1rem;
+  }
+
+  .variant-brief .brief-skill-line {
+    grid-template-columns: 1fr;
+    row-gap: 0.1rem;
+  }
+
+  .variant-brief #skills .skill-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .variant-brief #languages dl {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (max-width: 380px) {
   #header__name {
     font-size: 2.8rem;
     text-align: center;
+  }
+
+  .variant-brief #header__name {
+    font-size: 2.6rem;
   }
 
   #header__profession {
